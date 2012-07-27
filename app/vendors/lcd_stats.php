@@ -46,9 +46,9 @@ $aid = 'YOUR LOADEDCASH AFFILIATE ID HERE';
 $username = 'YOUR LOADEDCASH USERNAME HERE';
 $password = 'YOUR LOADEDCASH PASSWORD HERE';
 */
-$aid = '43800';
-$username = 'suzannebloch45';
-$password = 'SUZANNE4545';
+$aid = '53753';
+$username = 'suzannebloch55';
+$password = 'Adutta11';
 
 $key_d_t = gmdate("Y-m-d H:i:s"); // Greenwich Mean Date Time
 $key = md5($username . $password . $key_d_t);
