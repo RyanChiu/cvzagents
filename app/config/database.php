@@ -84,7 +84,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'marijana',
 		'password' => 'cc123qwe',
-		'database' => 'altcake',
+		'database' => 'cvzcake',
 		'prefix' => '',
 	);
 
