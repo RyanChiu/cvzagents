@@ -465,13 +465,9 @@ echo $scripts_for_layout;
 					?>
 				</div>
 				<div id="dropmenu_toolbox_admin" class="dropmenudiv_e"
-					style="width: 120px;">
+					style="width: 130px;">
 					<?php
-					echo $html->link('<font><b>Update HMS</b></font>',
-							array('controller' => 'trans', 'action' => 'updtoolbox', 'site' => 2),
-							null, false, false
-					);
-					echo $html->link('<font><b>Update XXBB</b></font>',
+					echo $html->link('<font><b>Update LC-Dating</b></font>',
 							array('controller' => 'trans', 'action' => 'updtoolbox', 'site' => 1),
 							null, false, false
 					);
