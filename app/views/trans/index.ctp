@@ -84,17 +84,17 @@ if (!empty($archdata)) {
 <!-- show the top selling list -->
 <br/>
 <table style="width:100%">
-<caption><font size="5" color="#bb2222">TOP 10 SELLERS</font></caption>
+<caption><font size="5" color="#bb2222">Best sellers this week.</font></caption>
 <tr>
 	<td width="50%">
 		<table style="width:100%" style="font-size:90%;">
 		<caption style="font-style:italic;">Till Today</caption>
 		<thead>
 		<tr>
-			<th>Place #.</th>
+			<th>Rank</th>
 			<th>Office</th>
 			<th>Agent</th>
-			<th>Total Sales</th>
+			<th>Sales</th>
 		</tr>
 		</thead>
 		<?php
@@ -120,7 +120,7 @@ if (!empty($archdata)) {
 		&nbsp;&nbsp;&nbsp;
 		<?php
 		if ($userinfo['role'] == 0) {
-			echo $html->link('<font size="1">Other weeks</font>',
+			echo $html->link('<font size="1">More weeks</font>',
 				array('controller' => 'trans', 'action' => 'top10'),
 				array(),
 				null,
@@ -131,10 +131,10 @@ if (!empty($archdata)) {
 		</caption>
 		<thead>
 		<tr>
-			<th>Place #.</th>
+			<th>Rank</th>
 			<th>Office</th>
 			<th>Agent</th>
-			<th>Total Sales</th>
+			<th>Sales</th>
 		</tr>
 		</thead>
 		<?php
@@ -163,8 +163,8 @@ if (!empty($archdata)) {
 	<div style="margin:5px 20px 5px 20px;">
 	<?php
 	//echo $html->image('iconTopnotes.png');
-	echo '<b><font size="3">News</font></b>';
-	echo '<br/>' . $topnotes;
+	//echo '<b><font size="3">News</font></b>';
+	echo /*'<br/>' . */$topnotes;
 	?>
 	<div style="height:6px"></div>
 	</div>

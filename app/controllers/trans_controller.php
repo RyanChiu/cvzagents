@@ -60,7 +60,7 @@ class TransController extends AppController {
 			switch ($this->params['action']) {
 				case 'updadmin':
 				case 'addnews':
-				case 'updpopupmsg':
+				case 'updalerts':
 				case 'regcompany':
 				case 'lstcompanies':
 				case 'updtoolbox':
@@ -93,7 +93,7 @@ class TransController extends AppController {
 			switch ($this->params['action']) {
 				case 'updadmin':
 				case 'addnews':
-				case 'updpopupmsg':
+				case 'updalerts':
 				case 'regcompany':
 				case 'regagent':
 				case 'updcompany':
@@ -722,21 +722,21 @@ class TransController extends AppController {
 		}
 	}
 	
-	function updpopupmsg() {
+	function updalerts() {
 		$this->layout = 'defaultlayout';
 		
 		if (empty($this->data)) {
 			/*prepare the notes for the current logged in user*/
-			$this->Admin->id = 1;//HARD CODE: we put the popup message into here
+			$this->Admin->id = 1;//HARD CODE: we put the alerts into here
 			$this->data = $this->Admin->read();
 			if (empty($this->data)) {
-				$this->Session->setFlash('Please create your first admin account, so we could continue the popup message setup.');
+				$this->Session->setFlash('Please create your first admin account, so we could continue the alerts setup.');
 				$this->redirect(array('controller' => 'trans', 'action' => 'index'));
 			}
 		} else {
 			$this->Admin->id = $this->data['Admin']['id'];
 			if ($this->Admin->saveField('notes', $this->data['Admin']['notes'])) {
-				$this->Session->setFlash('Popup message updated.');
+				$this->Session->setFlash('Alerts updated.');
 				$this->redirect(array('controller' => 'trans', 'action' => 'index'));
 			} else {
 				$this->Session->setFlash("Something wrong, please contact your administrator.");

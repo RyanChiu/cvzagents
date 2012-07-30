@@ -19,7 +19,7 @@ switch ($bywhat) {
 ?>
 
 <div style="width:800px;margin:3px 0px 0px 3px;">
-	<b><font size="1">
+	<b><font size="1" color="white">
     Timezone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GMT +0<br/>
     Philippines:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 8 hours<br/>
     USA:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 8 hours<br/>

@@ -51,8 +51,8 @@ class AppController extends Controller {
 		}
 		$this->set(compact("excludedsites"));
 		
-		$popupmsg = $this->Admin->field('notes', array('id' => 1));//HARD CODE: we put popup msg here
-		$this->set(compact('popupmsg'));
+		$alerts = $this->Admin->field('notes', array('id' => 1));//HARD CODE: we put alerts here
+		$this->set(compact('alerts'));
 		
 		/*
 		 * setting cookies part--start

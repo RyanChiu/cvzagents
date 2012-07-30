@@ -1,13 +1,13 @@
-<h1>Update Popup Message</h1>
+<h1>Update Alerts</h1>
 <?php
 //echo print_r($results, true);
 $userinfo = $session->read('Auth.Account');
-echo $form->create(null, array('controller' => 'trans', 'action' => 'updpopupmsg'));
+echo $form->create(null, array('controller' => 'trans', 'action' => 'updalerts'));
 ?>
 <table style="width:100%">
 	<tr>
 		<td align="center">
-		Popup Message
+		Alerts
 		</td>
 		<td>
 		<div style="float:left">

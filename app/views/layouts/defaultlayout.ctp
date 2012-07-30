@@ -135,7 +135,7 @@ echo $scripts_for_layout;
 							$menuitemscount++;
 							//if cur route matches this menu item, then set the number to inform the js code
 							if (strpos($this->here, 'addnews') === false
-									&& strpos($this->here, 'updpopupmsg') === false) {
+									&& strpos($this->here, 'updalerts') === false) {
 							} else {
 								$curmenuidx = $menuitemscount - 1;
 							}
@@ -386,7 +386,7 @@ echo $scripts_for_layout;
 						?>
 						<li>
 						<?php 
-						echo $html->link('<span><font>TOOL BOX</font></span>',
+						echo $html->link('<span><font>SALES INSTRUCTIONS</font></span>',
 								"#",
 								array('rel' => 'dropmenu_toolbox_admin'),
 								false, false);
@@ -403,7 +403,7 @@ echo $scripts_for_layout;
 						?>
 						<li>
 						<?php 
-						echo $html->link('<span><font>TOOL BOX</font></span>',
+						echo $html->link('<span><font>SALES INSTRUCTIONS</font></span>',
 								"#",
 								array('rel' => 'dropmenu_toolbox_normal'),
 								false, false);
@@ -426,10 +426,10 @@ echo $scripts_for_layout;
 				if ($role == 0) {//means an administrator
 				?>
 				<div id="dropmenu_admin_news" class="dropmenudiv_e"
-					style="width: 120px;">
+					style="width: 70px;">
 					<?php
-					echo $html->link('<font><b>Popup Message</b></font>',
-							array('controller' => 'trans', 'action' => 'updpopupmsg'),
+					echo $html->link('<font><b>Alerts</b></font>',
+							array('controller' => 'trans', 'action' => 'updalerts'),
 							null, false, false
 					);
 					?>
@@ -465,7 +465,7 @@ echo $scripts_for_layout;
 					?>
 				</div>
 				<div id="dropmenu_toolbox_admin" class="dropmenudiv_e"
-					style="width: 130px;">
+					style="width: 180px;">
 					<?php
 					echo $html->link('<font><b>Update LC-Dating</b></font>',
 							array('controller' => 'trans', 'action' => 'updtoolbox', 'site' => 1),
@@ -621,7 +621,7 @@ echo $scripts_for_layout;
 		</p>
 		-->
 			<script type="text/javascript" language="javascript">
-		/*//we just don't blink the title of the popup message here
+		/*//we just don't blink the title of the alerts here
 		colors = new Array(6);
 		colors[0] = "#ff0000";
 		colors[1] = "#ff2020";
@@ -645,7 +645,7 @@ echo $scripts_for_layout;
 		</script>
 			<p style="padding: 3px 3px 3px 3px;">
 				<?php
-				echo !empty($popupmsg) ? $popupmsg : '';
+				echo !empty($alerts) ? $alerts : '';
 				?>
 			</p>
 
@@ -680,7 +680,7 @@ echo $scripts_for_layout;
 
 			<p style="text-align: center; margin: 9px 0px 0px 9px;">
 				<?php
-				echo $html->link('<font style="font-weight:bold;">Enter Stats Area</font>',
+				echo $html->link('<font style="font-weight:bold;">Enter</font>',
 						array('controller' => 'trans', 'action' => 'pass'),
 						array('onclick' => 'javascript:jQuery.fancybox.close();',),
 						false, false
