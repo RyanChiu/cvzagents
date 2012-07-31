@@ -659,9 +659,9 @@ echo $scripts_for_layout;
 				YOUR
 				<?php echo '"' . implode("\", \"", $excludedsites) . '"'; ?>
 				LINKS HAVE BEEN SUSPENDED, PLEASE CONTACT <a
-					href="mailto:support@americanweblink.com"><font color="red">CCI
+					href="mailto:support@chatvazoo.com"><font color="red">CCI
 						SUPPORT</font> </a> FOR MORE INFO.<br /> <a
-					href="mailto:support@americanweblink.com"><font color="red">support@americanweblink.com</font>
+					href="mailto:support@chatvazoo.com"><font color="red">support@chatvazoo.com</font>
 				</a>
 			</p>
 			<div style="margin: 12px 2px 2px 2px; font-weight: bolder;">REASONS

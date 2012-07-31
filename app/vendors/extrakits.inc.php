@@ -142,12 +142,12 @@
 		$mail->Host = "smtpout.secureserver.net";  // specify main and backup server
 		$mail->Port = 25;
 		$mail->Timeout = 60;
-		$mail->Username = "support@americanweblink.com";  // SMTP username
+		$mail->Username = "support@chatvazoo.com";  // SMTP username
 		$mail->Password = "Otvori54321A"; // SMTP password
-		$mail->From = "support@americanweblink.com";
-		$mail->FromName = "support@americanweblink.com";
+		$mail->From = "support@chatvazoo.com";
+		$mail->FromName = "support@chatvazoo.com";
 		$mail->AddAddress($mailto, "Maintainer AWL");// the second param "name" is optional                
-		$mail->AddReplyTo("support@americanweblink.com", "Information");
+		$mail->AddReplyTo("support@chatvazoo.com", "Information");
 		$mail->IsHTML(true);
 		$mail->Subject = $subject;
 		$mail->Body    = $content;
