@@ -146,7 +146,7 @@
 		$mail->Password = "Otvori54321A"; // SMTP password
 		$mail->From = "support@chatvazoo.com";
 		$mail->FromName = "support@chatvazoo.com";
-		$mail->AddAddress($mailto, "Maintainer AWL");// the second param "name" is optional                
+		$mail->AddAddress($mailto, "Maintainer CVZ");// the second param "name" is optional                
 		$mail->AddReplyTo("support@chatvazoo.com", "Information");
 		$mail->IsHTML(true);
 		$mail->Subject = $subject;

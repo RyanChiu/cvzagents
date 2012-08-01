@@ -127,7 +127,7 @@ class TransController extends AppController {
 			'timeout'=>'60',
 			'host' => 'smtpout.secureserver.net',
 			'username'=>'support@chatvazoo.com',
-			'password'=>'Otvori54321A'
+			'password'=>'Adutta11'
 		);
 		$this->Email->from = '<' . $from . '>';
 		$this->Email->to = '<' . $mailto . '>';
@@ -1798,10 +1798,11 @@ class TransController extends AppController {
 					. "Conversation:(" . $r0['Site']['sitename'] . ")\n"
 					. $this->data['ChatLog']['conversation'] . "\n"
 					. "-" . $submittime->format("Y-m-d H:i:s") . " " . $this->__svrtz;
+				$fmsg = '';
+				/*
 				$mailto = ''
 					//. strtolower($r['ViewAgent']['officename']) . '_qa@cleanchattersinc.com';
 					. 'support@chatvazoo.com';
-				$fmsg = '';
 				if ($this->__sendemail(
 						$subject, $content,
 						'support@chatvazoo.com',
@@ -1809,11 +1810,12 @@ class TransController extends AppController {
 					) != true) {
 					$fmsg = '(Failed to email out.<0>)';
 				};
+				*/
 				if ($this->__sendemail(
 						$subject, $content,
 						'support@chatvazoo.com',
 						//'qa@cleanchattersinc.com'
-						'support@chatvazoo.com'
+						'agentlogs@chatvazoo.com'
 					) != true) {
 					$fmsg = '(Failed to email out.<1>)';
 				};
