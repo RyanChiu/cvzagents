@@ -583,6 +583,10 @@ echo $this->element('paginationblock');
 ?>
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <?php
+} else {
+?>
+<b><font color="red">No stats under the conditions you picked.</font></b>
+<?php
 }
 ?>
 
