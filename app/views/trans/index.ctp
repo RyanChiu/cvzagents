@@ -104,9 +104,9 @@ if (!empty($archdata)) {
 		?>
 		<tr <?php echo $i <= 3 ? 'style="font-weight:bold;"' : ''; ?>>
 			<td align="center"><?php echo $i; ?></td>
-			<td align="center"><?php echo $r[0]['sales'] > 0 ? $r['ViewStats']['officename'] : ''; ?></td>
-			<td align="center"><?php echo $r[0]['sales'] > 0 ? $r['ViewStats']['username'] : ''; ?></td>
-			<td align="center"><?php echo $r[0]['sales'] > 0 ? $r[0]['sales'] : ''; ?></td>
+			<td align="center"><?php echo $r[0]['sales'] > 0 ? $r['ViewStats']['officename'] : $r['ViewStats']['officename']; ?></td>
+			<td align="center"><?php echo $r[0]['sales'] > 0 ? $r['ViewStats']['username'] : $r['ViewStats']['username']; ?></td>
+			<td align="center"><?php echo $r[0]['sales'] > 0 ? $r[0]['sales'] : '0'; ?></td>
 		</tr>
 		<?php
 		}
@@ -144,9 +144,9 @@ if (!empty($archdata)) {
 		?>
 		<tr <?php echo $i <= 3 ? 'style="font-weight:bold;"' : ''; ?>>
 			<td align="center"><?php echo $i; ?></td>
-			<td align="center"><?php echo $r[0]['sales'] > 0 ? $r['ViewStats']['officename'] : ''; ?></td>
-			<td align="center"><?php echo $r[0]['sales'] > 0 ? $r['ViewStats']['username'] : ''; ?></td>
-			<td align="center"><?php echo $r[0]['sales'] > 0 ? $r[0]['sales'] : ''; ?></td>
+			<td align="center"><?php echo $r[0]['sales'] > 0 ? $r['ViewStats']['officename'] : $r['ViewStats']['officename']; ?></td>
+			<td align="center"><?php echo $r[0]['sales'] > 0 ? $r['ViewStats']['username'] : $r['ViewStats']['username']; ?></td>
+			<td align="center"><?php echo $r[0]['sales'] > 0 ? $r[0]['sales'] : '0'; ?></td>
 		</tr>
 		<?php
 		}
