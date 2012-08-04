@@ -329,7 +329,7 @@ echo $scripts_for_layout;
 						?>
 						<li>
 						<?php
-						echo $html->link('<span><font>ADMIN</font></span>',
+						echo $html->link('<span><font>PROFILE</font></span>',
 								array('controller' => 'trans', 'action' => 'updadmin'),
 								null, false, false);
 						?>
@@ -348,7 +348,7 @@ echo $scripts_for_layout;
 						?>
 						<li>
 						<?php
-						echo $html->link('<span><font>ADMIN</font></span>',
+						echo $html->link('<span><font>PROFILE</font></span>',
 								array('controller' => 'trans', 'action' => 'updcompany', 'id' => $userinfo['id']),
 								null, false, false);
 						?>
@@ -367,7 +367,7 @@ echo $scripts_for_layout;
 						?>
 						<li>
 						<?php
-						echo $html->link('<span><font>ADMIN</font></span>',
+						echo $html->link('<span><font>PROFILE</font></span>',
 								array('controller' => 'trans', 'action' => 'updagent', 'id' => $userinfo['id']),
 								null, false, false);
 						?>
