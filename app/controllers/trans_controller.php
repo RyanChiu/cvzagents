@@ -24,7 +24,7 @@ class TransController extends AppController {
 		'ExPaginator'
 	);
 	var $__limit = 50;
-	var $__svrtz = "America/Los_Angeles";
+	var $__svrtz = "Asia/Manila";
 	var $__timeout = 21600;// in seconds, shoud be the same with the php timeout setting
 
 	function beforeFilter() {
