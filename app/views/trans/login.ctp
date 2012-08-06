@@ -65,14 +65,14 @@ echo $form->create(null, array('controller' => 'trans', 'action' => 'login'));
 				<script type="text/javascript">
 				function __chgVcodes() {
 					document.getElementById("imgVcodes").src =
-						"<?php echo $html->url(array('controller' => 'trans', 'action' => 'captcha')); ?>"
+						"<?php echo $html->url(array('controller' => 'trans', 'action' => 'phpcaptcha')); ?>"
 						+ "?" + Math.random();
 				}
 				</script>
 				<?php
 				echo $html->link(
-						$html->image(array('controller' => 'trans', 'action' => 'captcha'),
-								array('width' => '60', 'height' => '20', 'id' => 'imgVcodes', 'onclick' => 'javascript:__chgVcodes();')
+						$html->image(array('controller' => 'trans', 'action' => 'phpcaptcha'),
+								array('width' => '90', 'height' => '23', 'id' => 'imgVcodes', 'onclick' => 'javascript:__chgVcodes();')
 						),
 						'#',
 						array('title' => 'Click to try another one.(By entering this code you help yourself prevent spam and fake login.)'),

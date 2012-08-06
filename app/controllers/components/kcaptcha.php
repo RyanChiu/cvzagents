@@ -1,5 +1,5 @@
 <?php
-class CaptchaComponent extends Object {
+class KcaptchaComponent extends Object {
 	var $Controller = null;
 
 	function startup(&$controller)
@@ -11,7 +11,7 @@ class CaptchaComponent extends Object {
 	{
 		App::import('vendor', 'kcaptcha/kcaptcha');
 		$kcaptcha = new KCAPTCHA();
-		$this->Controller->Session->write('captcha', $kcaptcha->getKeyString());
+		$this->Controller->Session->write('kcaptcha', $kcaptcha->getKeyString());
 		exit;
 	}
 
