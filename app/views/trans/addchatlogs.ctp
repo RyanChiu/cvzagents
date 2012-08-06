@@ -4,6 +4,11 @@ $userinfo = $session->read('Auth.Account');
 //echo '<br/>';
 ?>
 <h1>Submit Chat Logs</h1>
+
+<?php
+echo $this->element('timezoneblock');
+?>
+
 <?php
 echo $form->create(null, array('controller' => 'trans', 'action' => 'addchatlogs'));
 ?>

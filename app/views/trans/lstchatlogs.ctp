@@ -6,6 +6,10 @@ $userinfo = $session->read('Auth.Account');
 <h1>Chat Logs</h1>
 
 <?php
+echo $this->element('timezoneblock');
+?>
+
+<?php
 echo $form->create(null, array('controller' => 'trans', 'action' => 'lstchatlogs'));
 ?>
 <div style="width:100%;margin-top:5px;">

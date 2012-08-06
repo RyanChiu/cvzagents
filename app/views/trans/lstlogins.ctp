@@ -1,4 +1,9 @@
 <h1>Log in/out Logs</h1>
+
+<?php
+echo $this->element('timezoneblock');
+?>
+
 <?php
 $userinfo = $session->read('Auth.Account');
 ?>

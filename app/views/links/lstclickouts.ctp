@@ -4,6 +4,10 @@ $userinfo = $session->read('Auth.Account');
 ?>
 <h1>Click Logs</h1>
 
+<?php
+echo $this->element('timezoneblock');
+?>
+
 <div style="width:100%;margin-top:5px;" id="search">
 <?php
 echo $form->create(null, array('controller' => 'links', 'action' => 'lstclickouts'));

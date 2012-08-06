@@ -18,14 +18,9 @@ switch ($bywhat) {
 }
 ?>
 
-<div style="width:800px;margin:3px 0px 0px 3px;">
-	<b><font size="1" color="white">
-    Timezone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GMT +0<br/>
-    Philippines:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 8 hours<br/>
-    USA:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 8 hours<br/>
-    World Clock:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.timeanddate.com/worldclock/">http://www.timeanddate.com/worldclock/</a>
-  	</font></b>
-</div>
+<?php
+echo $this->element('timezoneblock');
+?>
 
 <?php
 //echo print_r($rs, true);

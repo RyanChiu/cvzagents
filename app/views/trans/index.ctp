@@ -83,6 +83,11 @@ if (!empty($archdata)) {
 
 <!-- show the top selling list -->
 <br/>
+
+<?php
+echo $this->element('timezoneblock');
+?>
+
 <table style="width:100%">
 <caption><font size="5" color="#bb2222">Best sellers this week.</font></caption>
 <tr>

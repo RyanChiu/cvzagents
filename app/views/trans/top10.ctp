@@ -1,6 +1,10 @@
 <h1>Top 10</h1>
 
 <?php
+echo $this->element('timezoneblock');
+?>
+
+<?php
 echo $form->create(null, array('controller' => 'trans', 'action' => 'top10', 'id' => 'frmTop10'));
 ?>
 <div style="margin:6px 20px 6px 2px;">
