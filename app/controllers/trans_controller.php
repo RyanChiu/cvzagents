@@ -17,7 +17,6 @@ class TransController extends AppController {
 	var $components = array(
 		'Auth',
 		'Email',
-		'Kcaptcha',
 		'Phpcaptcha'
 	);
 	var $helpers = array(
@@ -40,7 +39,7 @@ class TransController extends AppController {
 		$this->Auth->authError = 'Sorry, you are not authorized to access that location.';
 		$this->Auth->userScope = array('Account.status' => '1');
 		$this->Auth->autoRedirect = false;
-		$this->Auth->allow('login', 'logout', 'forgotpwd', 'contactus', 'kcaptcha', 'phpcaptcha', 'index', 'golink', 'go');
+		$this->Auth->allow('login', 'logout', 'forgotpwd', 'contactus', 'phpcaptcha', 'index', 'golink', 'go');
 		
 		/*check if the user could visit some actions*/
 		$this->__handleAccess();
@@ -143,26 +142,10 @@ class TransController extends AppController {
 		else return true;
 	}
 	
-	function kcaptcha() {
-        Configure::write('debug', '0');
-        $this->autoRender = false;
-        $this->Kcaptcha->render();
-	}
-	
 	function phpcaptcha() {
 		Configure::write('debug', '0');
 		$this->autoRender = false;
 		$this->Phpcaptcha->render();
-	}
-    
-	function __checkKcaptcha($vcode) {
-    	if ($this->Session->check('kcaptcha')) {
-    		$s_kcaptcha = $this->Session->read('kcaptcha');
-			if (!empty($vcode) && $vcode == $s_kcaptcha) {
-				return true;
-			}
-		}
-		return false;
 	}
 	
 	function __checkPhpcaptcha($vcode) {
@@ -472,7 +455,6 @@ class TransController extends AppController {
 				}
 				
 			$vcode = $this->data['Account']['vcode'];
-			//if ($this->__checkKcaptcha($vcode)) {//if kcaptcha code is correct
 			if ($this->__checkPhpcaptcha($vcode)) {//if phpcaptcha code is correct
 				/*login part*/
 				if ($this->Auth->user()) {//means username/password/status are all correct, login succeeded
