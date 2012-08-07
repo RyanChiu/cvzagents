@@ -8,7 +8,7 @@
 /*for default whole page layout*/
 echo $html->css('main');
 
-/*for jQuery flash*/
+/*for jQuery*/
 echo $javascript->link('jQuery/Datepicker/jquery-1.3.2.min');
 
 /*for cufon*/
