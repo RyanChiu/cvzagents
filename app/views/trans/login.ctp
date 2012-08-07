@@ -58,7 +58,14 @@ echo $form->create(null, array('controller' => 'trans', 'action' => 'login'));
 		<td align="left">
 			<div style="float: left; margin-right: 10px;">
 				<?php
-				echo $form->input('Account.vcode', array('label' => '', 'style' => 'width:112px;', 'div' => array('style' => 'margin-bottom:5px;')));
+				echo $form->input(
+					'Account.vcode', 
+					array(
+						'label' => '', 
+						'style' => 'width:112px;', 
+						'div' => array('style' => 'margin-top:8px;')
+					)
+				);
 				?>
 			</div>
 			<div style="float: left;">
@@ -72,7 +79,7 @@ echo $form->create(null, array('controller' => 'trans', 'action' => 'login'));
 				<?php
 				echo $html->link(
 						$html->image(array('controller' => 'trans', 'action' => 'phpcaptcha'),
-								array('width' => '90', 'height' => '23', 'id' => 'imgVcodes', 'onclick' => 'javascript:__chgVcodes();')
+								array('style' => 'width:100px; height:35; border: 1px solid #222222;', 'id' => 'imgVcodes', 'onclick' => 'javascript:__chgVcodes();')
 						),
 						'#',
 						array('title' => 'Click to try another one.(By entering this code you help yourself prevent spam and fake login.)'),
@@ -80,11 +87,25 @@ echo $form->create(null, array('controller' => 'trans', 'action' => 'login'));
 				);
 				?>
 			</div>
+			<div style="float: left;">
+				<div id="playPhpcaptcha">
+					<object type="application/x-shockwave-flash"
+						data="../img/securimage_play.swf?bgcol=#ffffff&amp;icon_file=../img/audio_icon.png&amp;audio_file=<?php
+							echo $html->url(array('controller' => 'trans', 'action' => 'playPhpcaptcha')); 
+						?>"
+						style="width: 35px; height: 35px; border: 1px solid #666666; margin-top: 1px; margin-left: 2px;">
+						<param name="movie"
+							value="../img/securimage_play.swf?bgcol=#ffffff&amp;icon_file=../img/audio_icon.png&amp;audio_file=<?php
+								echo $html->url(array('controller' => 'trans', 'action' => 'playPhpcaptcha')); 
+							?>"/>
+					</object>
+				</div>
+			</div>
 		</td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td></td>
+		<td style="color: #dddddd;">Example: 9x4=36, please enter 36.</td>
 	</tr>
 	<tr>
 		<td colspan="2" align="center">

@@ -39,7 +39,7 @@ class TransController extends AppController {
 		$this->Auth->authError = 'Sorry, you are not authorized to access that location.';
 		$this->Auth->userScope = array('Account.status' => '1');
 		$this->Auth->autoRedirect = false;
-		$this->Auth->allow('login', 'logout', 'forgotpwd', 'contactus', 'phpcaptcha', 'index', 'golink', 'go');
+		$this->Auth->allow('login', 'logout', 'forgotpwd', 'contactus', 'phpcaptcha', 'playPhpcaptcha', 'index', 'golink', 'go');
 		
 		/*check if the user could visit some actions*/
 		$this->__handleAccess();
@@ -145,7 +145,13 @@ class TransController extends AppController {
 	function phpcaptcha() {
 		Configure::write('debug', '0');
 		$this->autoRender = false;
-		$this->Phpcaptcha->render();
+		$this->Phpcaptcha->show();
+	}
+	
+	function playPhpcaptcha() {
+		Configure::write('debug', '0');
+		$this->autoRender = false;
+		$this->Phpcaptcha->play();
 	}
 	
 	function __checkPhpcaptcha($vcode) {
