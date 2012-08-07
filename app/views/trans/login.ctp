@@ -43,7 +43,7 @@ echo $form->create(null, array('controller' => 'trans', 'action' => 'login'));
 		</td>
 		<td align="left">
 			<?php
-			echo $form->input('Account.password', array('label' => '', 'style' => 'width:112px;', 'type' => 'password'));
+			echo $form->input('Account.password', array('label' => '', 'style' => 'width:112px; margin-top: 8px;', 'type' => 'password'));
 			?>
 		</td>
 	</tr>
