@@ -688,7 +688,7 @@ class TransController extends AppController {
 				$this->data['FakeContactUs']['subject'],
 				"From:" . $this->data['FakeContactUs']['email'] . "\n\n" . $this->data['FakeContactUs']['message'],
 				"support@ChatVazoo.com",
-				"help@ChatVazoo.com",
+				"support@ChatVazoo.com",
 				$this->data['FakeContactUs']['email']
 			);
 			$redirecturl = '';
