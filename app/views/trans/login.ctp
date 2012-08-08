@@ -15,7 +15,12 @@ echo $form->create(null, array('controller' => 'trans', 'action' => 'login'));
 		<td colspan="2" align="center">
 			<b><font size="4" color="#b3dc3a">WELCOME AFFILIATES</font> </b> <br /> <br />
 		</td>
-		<td rowspan="10" align="right" width="185px">
+		<td rowspan="10" width="185px" style="vertical-align: top;">
+			<div style="float: right; text-align: right;">
+				<?php echo $html->link("Register for account", "/../cvzreg/MerchantRegistration.htm"); ?>
+				<br/>
+				<?php echo $html->link("Contact us", array("controller" => "trans", "action" => "contactus")); ?>
+			</div>
 			<?php
 			//echo $html->image('loginRight.png', array('width' => '120px'));
 			?>
