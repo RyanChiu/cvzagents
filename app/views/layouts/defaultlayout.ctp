@@ -501,11 +501,13 @@ echo $scripts_for_layout;
 				<div id="dropmenu_toolbox_normal" class="dropmenudiv_e"
 					style="width: 120px;">
 					<?php
+					/*
 					echo $html->link('<font><b>HMS</b></font>',
 							array('controller' => 'trans', 'action' => 'toolbox', 'site' => 2),
 							null, false, false
 					);
-					echo $html->link('<font><b>XXBB</b></font>',
+					*/
+					echo $html->link('<font><b>LC-Dating</b></font>',
 							array('controller' => 'trans', 'action' => 'toolbox', 'site' => 1),
 							null, false, false
 					);
