@@ -386,7 +386,7 @@ echo $scripts_for_layout;
 						?>
 						<li>
 						<?php 
-						echo $html->link('<span><font>SALES INSTRUCTIONS</font></span>',
+						echo $html->link('<span><font>HOW TO SELL</font></span>',
 								"#",
 								array('rel' => 'dropmenu_toolbox_admin'),
 								false, false);
@@ -403,7 +403,7 @@ echo $scripts_for_layout;
 						?>
 						<li>
 						<?php 
-						echo $html->link('<span><font>SALES INSTRUCTIONS</font></span>',
+						echo $html->link('<span><font>HOW TO SELL</font></span>',
 								"#",
 								array('rel' => 'dropmenu_toolbox_normal'),
 								false, false);
