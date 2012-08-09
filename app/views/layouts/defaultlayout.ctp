@@ -102,6 +102,7 @@ echo $scripts_for_layout;
 							lang="EN-US"
 							style="font-size: 28.0pt; line-height: 115%; color: #FFC000">o
 						</span>
+						<span lang="EN-US" style="font-size: 12.0pt; line-height: 115%; color: #ffc000">International</span>
 					</p>
 				</div>
 			</div>
