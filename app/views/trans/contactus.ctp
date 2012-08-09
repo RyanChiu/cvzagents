@@ -8,9 +8,9 @@ $userinfo = $session->read('Auth.Account');
 echo $form->create(null, array('controller' => 'trans', 'action' => 'contactus'));
 ?>
 <table style="width:100%" <?php echo empty($userinfo) ? 'cellspacing="5" style="border: 1px solid #dddddd;"' : ''; ?>>
-<caption>Fields marked with an asterisk (*) are required.</caption>
+<caption  style="color: #ffa000; font-weight: bold;">Fields marked with an asterisk (*) are required.</caption>
 	<tr>
-		<td>Your Email Address:</td>
+		<td style="color: #ffc000;">Your Email Address:</td>
 		<td align="left">
 		<div style="float:left">
 		<?php
@@ -21,7 +21,7 @@ echo $form->create(null, array('controller' => 'trans', 'action' => 'contactus')
 		</td>
 	</tr>
 	<tr>
-		<td>Subject:</td>
+		<td style="color: #ffc000;">Subject:</td>
 		<td align="left">
 		<div style="float:left">
 		<?php
@@ -32,7 +32,7 @@ echo $form->create(null, array('controller' => 'trans', 'action' => 'contactus')
 		</td>
 	</tr>
 	<tr>
-		<td>Message:</td>
+		<td style="color: #ffc000;">Message:</td>
 		<td align="left">
 		<div style="float:left">
 		<?php
@@ -46,7 +46,7 @@ echo $form->create(null, array('controller' => 'trans', 'action' => 'contactus')
 		<td></td>
 		<td>
 		<?php
-		echo $form->submit('Send your message for us now', array('style' => 'width:300px;'));
+		echo $form->submit('Send', array('style' => 'width:100px;'));
 		if (empty($userinfo)) {
 			echo '<div style="margin-top:6px;">'
 				. $html->link(
