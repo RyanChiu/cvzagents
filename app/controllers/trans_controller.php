@@ -127,7 +127,7 @@ class TransController extends AppController {
 			'timeout'=>'60',
 			'host' => 'smtpout.secureserver.net',
 			'username'=>'support@chatvazoo.com',
-			'password'=>'Adutta11'
+			'password'=>'Adutta111'
 		);
 		$this->Email->from = '<' . $from . '>';
 		$this->Email->to = '<' . $mailto . '>';
