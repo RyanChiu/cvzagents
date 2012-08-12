@@ -453,8 +453,9 @@ class LinksController extends AppController {
 	function lstclickouts() {
 		$this->layout = 'defaultlayout';
 		
-		$startdate = date('Y-m-d', mktime (0,0,0,date("m"), date("d") - 6 ,date("Y")));
-		$enddate = date('Y-m-d');
+		$startdate = $enddate = date("Y-m-d", strtotime(date('Y-m-d') . " Sunday"));
+		$startdate = date("Y-m-d", strtotime($enddate . " - 7 days"));
+		$enddate = date("Y-m-d", strtotime($startdate . " + 6 days"));
 
 		$selcom = $selagent = $selsite = 0;
 		if ($this->curuser['role'] == 1) {

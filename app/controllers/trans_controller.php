@@ -1561,8 +1561,9 @@ class TransController extends AppController {
 		$this->layout = 'defaultlayout';
 		
 		$selcom = $selagent = 0;
-		$startdate = date('Y-m-d', mktime (0,0,0,date("m"), date("d") - 6 ,date("Y")));
-		$enddate = date('Y-m-d');
+		$startdate = $enddate = date("Y-m-d", strtotime(date('Y-m-d') . " Sunday"));
+		$startdate = date("Y-m-d", strtotime($enddate . " - 7 days"));
+		$enddate = date("Y-m-d", strtotime($startdate . " + 6 days"));
 		
 		if (!empty($this->data)) {
 			$startdate = $this->data['ViewOnlineLog']['startdate'];
@@ -1844,9 +1845,11 @@ class TransController extends AppController {
 	function lstchatlogs($id = -1) {
 		$this->layout = 'defaultlayout';
 		
-		$startdate = date('Y-m-d', mktime (0,0,0,date("m"), date("d") - 6 ,date("Y")));
-		$enddate = date('Y-m-d');
+		$startdate = $enddate = date("Y-m-d", strtotime(date('Y-m-d') . " Sunday"));
+		$startdate = date("Y-m-d", strtotime($enddate . " - 7 days"));
+		$enddate = date("Y-m-d", strtotime($startdate . " + 6 days"));
 		$selcom = $selagent = $selsite = 0;
+
 		if ($this->Auth->user('role') == 1) {// means an office
 			$selcom = $this->Auth->user('id');
 			if ($id != -1) {
