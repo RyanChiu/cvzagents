@@ -242,22 +242,16 @@ if ($userinfo['role'] == 1) {
 		</td> 
 	</tr>
 	<tr>
-		<td>Status :<br/>
-		<font style="font-size:15px;font-weight:bold;color:#ff8040;">(Uncheck to suspend the agents</font><br/>
-		<font style="font-size:15px;font-weight:bold;color:#ff8040;">from all or some sites.)</font>
-		</td>
 		<td>
+		<label id="labelUAS">Activated</label>
 		<?php
 		if ($userinfo['role'] == 2) {//means an agent
-			echo 'Activated' . $form->checkbox('Account.status', array('onclick' => 'javascript:return false;', 'style' => 'border:0px;width:16px;'));
+			echo $form->input('Account.status', array('type' => 'hidden'));
 		} else {
-			echo 'Activated' . $form->checkbox('Account.status', array('style' => 'border:0px;width:16px;'));
+			echo $form->checkbox('Account.status', array('style' => 'border:0px;width:16px;'));
 		}
 		?>
 		</td>
-	</tr>
-	<tr>
-		<td></td>	
 		<td>
 		<?php
 		echo $form->submit($submittxt, array('style' => 'width:112px;'));
@@ -266,7 +260,32 @@ if ($userinfo['role'] == 1) {
 	</tr>
 </table>
 <script type="text/javascript"> 
-jQuery(":checkbox").attr({style: "border:0px;width:16px;vertical-align:middle;"}); 
+jQuery(":checkbox").attr({
+	style: "border: 0px; width: 16px; margin-left: 2px; vertical-align: middle;"
+});
+
+<?php if ($userinfo['role'] == 2) {//means an agent ?>
+	jQuery("#labelUAS").hide();
+<?php } else {?>
+	jQuery("#labelUAS").show();
+<?php } ?>
+
+jQuery("#AccountStatus").click(function() {
+	if (jQuery("#AccountStatus").attr("checked")) {
+		jQuery("#AccountStatus").val(1);
+	} else {
+		jQuery("#AccountStatus").val(0);
+	}
+});
+
+if (jQuery("#AccountStatus").val() == "-1") {
+	jQuery("#labelUAS").text("Approved");
+	jQuery("#AccountStatus").attr("checked", false);
+	jQuery("#AccountStatus").val(-1);
+	jQuery("#AccountStatus_").val(-1);
+} else {
+	jQuery("#labelUAS").text("Activated");
+}
 </script>
 <?php
 echo $form->input('Account.id', array('type' => 'hidden'));

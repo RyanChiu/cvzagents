@@ -212,18 +212,11 @@ if ($userinfo['role'] == 1) {
 		</td>
 	</tr>
 	<tr>
-		<td>Status :<br/>
-		<font style="font-size:15px;font-weight:bold;color:#ff8040;">(Uncheck to suspend the agents</font><br/>
-		<font style="font-size:15px;font-weight:bold;color:#ff8040;">from all or some sites.)</font>
-		</td>
 		<td>
 		<?php
-		echo 'Activated' . $form->checkbox('Account.status', array('checked' => 'checked', 'style' => 'border:0px;width:16px;'));
+		echo $form->input('Account.status', array('type' => 'hidden', 'value' => '-1'));//the default status if unapproved
 		?>
 		</td>
-	</tr>
-	<tr>
-		<td></td>
 		<td>
 		<?php
 		if ($userinfo['role'] == 0 || $userinfo['role'] == 1) {//means an administrator or an office
