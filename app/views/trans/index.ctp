@@ -3,7 +3,7 @@
 $userinfo = $session->read('Auth.Account');
 ?>
 <div>
-<div style="float:left;"><h1><font color="red">ALERTS</font></h1></div>
+<div style="float:left;"><h1>Home</h1></div>
 <div style="float:left;margin-left:10px;">
 <?php
 if ($userinfo['role'] == 0) {
@@ -93,7 +93,7 @@ echo $this->element('timezoneblock');
 <tr>
 	<td width="50%">
 		<table style="width:100%" style="font-size:90%;">
-		<caption style="font-style:italic;">Till Today</caption>
+		<caption style="font-style:italic;">All times</caption>
 		<thead>
 		<tr>
 			<th>Rank</th>
@@ -119,13 +119,10 @@ echo $this->element('timezoneblock');
 		</table>
 	</td>
 	<td>
-		<table style="width:100%" style="font-size:90%;">
-		<caption style="font-style:italic;">
-		This Week (From <?php echo $weekstart; ?> To <?php echo $weekend; ?>)
-		&nbsp;&nbsp;&nbsp;
+		<div style="float: right;">
 		<?php
 		if ($userinfo['role'] == 0) {
-			echo $html->link('<font size="1">More weeks</font>',
+			echo $html->link('<font size="1">Choose another pay period</font>',
 				array('controller' => 'trans', 'action' => 'top10'),
 				array(),
 				null,
@@ -133,6 +130,10 @@ echo $this->element('timezoneblock');
 			);
 		}
 		?>
+		</div>
+		<table style="width:100%" style="font-size:90%;">
+		<caption style="font-style:italic;">
+		This Week (From <?php echo $weekstart; ?> To <?php echo $weekend; ?>)		
 		</caption>
 		<thead>
 		<tr>
