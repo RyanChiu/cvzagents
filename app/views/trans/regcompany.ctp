@@ -163,7 +163,7 @@ echo $form->create(null, array('controller' => 'trans', 'action' => 'regcompany'
 	<tr>
 		<td>
 		<?php
-		echo 'Activated' . $form->checkbox('Account.status', array('checked' => 'checked', 'style' => 'border:0px;width:16px;'));
+		echo $form->input('Account.status', array('type' => 'hidden', 'value' => '-1'));//the default status if unapproved
 		?>
 		</td>
 		<td>

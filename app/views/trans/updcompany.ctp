@@ -186,8 +186,8 @@ echo $form->create(null, array('controller' => 'trans', 'action' => 'updcompany'
 	</tr>
 	<tr>
 		<td>
+		<label id="labelUAS">Activated</label>
 		<?php
-		echo 'Activated';
 		echo $form->checkbox(
 			'Account.status'
 		);
@@ -201,7 +201,26 @@ echo $form->create(null, array('controller' => 'trans', 'action' => 'updcompany'
 	</tr>
 </table>
 <script type="text/javascript">
-jQuery(":checkbox").attr({style: "border:0px;width:16px;vertical-align:middle;"});
+jQuery(":checkbox").attr({
+	style: "border: 0px; width: 16px; margin-left: 2px; vertical-align: middle;"
+});
+
+jQuery("#AccountStatus").click(function() {
+	if (jQuery("#AccountStatus").attr("checked")) {
+		jQuery("#AccountStatus").val(1);
+	} else {
+		jQuery("#AccountStatus").val(0);
+	}
+});
+
+if (jQuery("#AccountStatus").val() == "-1") {
+	jQuery("#labelUAS").text("Approved");
+	jQuery("#AccountStatus").attr("checked", false);
+	jQuery("#AccountStatus").val(-1);
+	jQuery("#AccountStatus_").val(-1);
+} else {
+	jQuery("#labelUAS").text("Activated");
+}
 </script>
 <?php
 echo $form->input('Account.id', array('type' => 'hidden'));
