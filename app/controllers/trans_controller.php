@@ -458,6 +458,16 @@ class TransController extends AppController {
 						$this->Auth->logout();
 						return;
 					}
+					if ($cpinfo['Account']['status'] == -1) {
+						$this->Session->setFlash(
+								"(Your office is not approved for the moment, please contact your administrator.)",
+								'default',
+								array('class' => 'suspended-warning')
+						);
+						$this->data['Account']['password'] = '';
+						$this->Auth->logout();
+						return;
+					}
 				}
 				
 			$vcode = $this->data['Account']['vcode'];
@@ -521,6 +531,12 @@ class TransController extends AppController {
 								'(Your account for this site is temporarily suspended for fraud review.)',
 								'default',
 								array('class' => 'suspended-warning')
+							);
+						} else if ($userinfo['Account']['status'] == -1) {
+							$this->Session->setFlash(
+									'(Your account for this site is not approved for the moment.)',
+									'default',
+									array('class' => 'suspended-warning')
 							);
 						} else {
 							/*try to find the new username by searching the mappings table*/
