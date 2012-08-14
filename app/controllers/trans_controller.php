@@ -62,6 +62,7 @@ class TransController extends AppController {
 				case 'addnews':
 				case 'updalerts':
 				case 'regcompany':
+				case 'lstnewmembers':
 				case 'lstcompanies':
 				case 'updtoolbox':
 					$this->__accessDenied();
@@ -98,6 +99,7 @@ class TransController extends AppController {
 				case 'regagent':
 				case 'updcompany':
 				case 'rptpayouts':
+				case 'lstnewmembers':
 				case 'lstcompanies':
 				case 'lstagents':
 				case 'lstlogins':
@@ -1417,6 +1419,29 @@ class TransController extends AppController {
 			}
 		}
 	}
+	
+	function lstnewmembers() {
+		$this->layout = 'defaultlayout';
+		
+		if (!empty($this->data)) {// if there are any POST data
+		} else {
+			$conditions = array(
+				'status' => '-1'
+			);
+			$this->paginate = array(
+				'Account' => array(
+					'conditions' => $conditions,
+					'limit' => $this->__limit,
+					'order' => 'username4m'
+				)
+			);
+			$this->set('status', $this->Account->status);
+			$this->set('limit', $this->__limit);
+			$this->set('rs',
+				$this->paginate('Account')
+			);
+		}
+	}
 		
 	function lstcompanies($id = null) {
 		$this->layout = 'defaultlayout';
@@ -1719,11 +1744,12 @@ class TransController extends AppController {
 		if ($ids == null || $status == -1 || $from == -1) {
 			$this->redirect(array('controller' => 'trans', 'action' => 'index'));
 		}
-		if ($status > 1 || $status < 0) {
+		if ($status > 1 || $status < -1) {
 			$this->redirect(array('controller' => 'trans', 'action' => 'index'));
 		}
 		$action = 'lstcompanies';
 		if ($from == 1) $action = 'lstagents';
+		if ($from == 2) $action = 'lstnewmembers';
 		
 		/*update the field "status" of table accounts*/
 		if ($this->Account->updateAll(array('status' => $status), array('id' => $ids))) {

@@ -219,6 +219,25 @@ echo $scripts_for_layout;
 						}
 						?>
 						<?php
+						if ($role == 0) {//means an administrator
+							$menuitemscount++;
+							//if cur route matches this menu item, then set the number to inform the js code
+							if (strpos($this->here, 'lstnewmembers') === false) {
+							} else {
+								$curmenuidx = $menuitemscount - 1;
+							}
+						?>
+						<li>
+						<?php
+						echo $html->link('<span><font>NEW MEMBERS</font></span>',
+								array('controller' => 'trans', 'action' => 'lstnewmembers'),
+								null, false, false);
+						?>
+						</li>
+						<?php
+						}
+						?>
+						<?php
 						if ($role != -1) {//means everyone
 							$menuitemscount++;
 							//if cur route matches this menu item, then set the number to inform the js code
