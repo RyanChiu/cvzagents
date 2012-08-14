@@ -27,7 +27,7 @@ class Account extends AppModel {
 		)
 	);
 	
-	var $status = array('0' => 'suspended', '1' => 'activated');
+	var $status = array('-1' => 'unapproved', '0' => 'suspended', '1' => 'activated');
 	var $online = array('0' => 'offline', '1' => 'online');
 	
 	function hashPasswords($data) {
