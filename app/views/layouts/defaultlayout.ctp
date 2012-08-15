@@ -596,20 +596,20 @@ echo $scripts_for_layout;
 							style="float: right; margin: 6px 6px 0px 0px; display: none; color: white;"
 							id="divTimezoneTip">
 							<script language="javascript">
-					        	document.write("Your timezone: " + calculate_time_zone() + "");
-					        	</script>
-										</div>
-										<script language="javascript">
-					        	function __zShowClock() {
-					        		var now = new Date();
-						        	now.setHours(now.getHours() + 8);
-						        	var nowStr = now.toUTCString();
-						        	nowStr = nowStr.replace("GMT", "Manila");
-					        		jQuery("#iptClock").val(nowStr);
-					        		setTimeout("__zShowClock()", 1000);
-					        	}
-					        	__zShowClock();
-					        </script>
+				        	document.write("Your timezone: " + calculate_time_zone() + "");
+				        	</script>
+						</div>
+						<script language="javascript">
+			        	function __zShowClock() {
+			        		var now = new Date();
+				        	now.setHours(now.getHours() + 8);
+				        	var nowStr = now.toUTCString();
+				        	nowStr = nowStr.replace("GMT", "Manila");
+			        		jQuery("#iptClock").val(nowStr);
+			        		setTimeout("__zShowClock()", 1000);
+			        	}
+			        	__zShowClock();
+				        </script>
 					</div>
 					<div class="content-mid">
 
@@ -625,7 +625,7 @@ echo $scripts_for_layout;
 		<!-- End Border -->
 		<!-- Start Footer -->
 		<div id="footer">
-			<font size="2" color="white"><b>Copyright &copy; 2009 ChatVazoo All
+			<font size="2" color="white"><b>Copyright &copy; 2010 ChatVazoo All
 				Rights Reserved.&nbsp;&nbsp;</b> </font>
 		</div>
 		<!-- End Footer -->
