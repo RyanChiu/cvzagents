@@ -132,31 +132,31 @@
 	}
 	
 	/*
-	 * try to use phpmail class to send email
+	 * try to send an email
 	 */
 	function __phpmail($mailto = "maintainer.cci@gmail.com", $subject = "", $content = "") {
-		require_once("class.phpmailer.php");	
-		$mailinfo = 'no email sent';
-		$mail = new PHPMailer();
-		$mail->IsSMTP();  // set mailer to use SMTP
-		$mail->Host = "smtpout.secureserver.net";  // specify main and backup server
-		$mail->Port = 25;
-		$mail->Timeout = 60;
-		$mail->Username = "support@chatvazoo.com";  // SMTP username
-		$mail->Password = "Otvori54321A"; // SMTP password
-		$mail->From = "support@chatvazoo.com";
-		$mail->FromName = "support@chatvazoo.com";
-		$mail->AddAddress($mailto, "Maintainer CVZ");// the second param "name" is optional                
-		$mail->AddReplyTo("support@chatvazoo.com", "Information");
-		$mail->IsHTML(true);
-		$mail->Subject = $subject;
-		$mail->Body    = $content;
-		$mail->AltBody = "This is the body in plain text for non-HTML mail clients\n\n" . $content;
+		require_once("Mail.php");
+		$mailer = Mail::factory(
+			"SMTP",
+			array(
+				'host' => "ssl://smtp.gmail.com",
+				'port' => "465",
+				'auth' => true,
+				'username' => "agents.maintainer@gmail.com",
+				'password' => "`1qaz2wsx"
+			)
+		);
 		
-		if ($mail->Send()) {
+		$a_headers['From'] = "agents.maintainer@gmail.com";
+		$a_headers['To'] = $mailto;
+		
+		$a_headers['Subject'] = $subject;
+		
+		$res = $mailer->send($a_headers['To'], $a_headers, $content);
+		if ($res) {
 			$mailinfo = 'email sent.';
 		} else {
-			$mailinfo = $mail->ErrorInfo;
+			$mailinfo = $res->getMessage();
 		}
 		return $mailinfo;
 	}
