@@ -123,16 +123,14 @@ foreach ($xml->children() as $item) {
 	 */
 	$campaignlabel = "" . $item->campaign_label;
 	$prefix = "a" . $aid . "_";
-	$prefix_x = $prefix . "-";
-	if (!(strpos($campaignlabel, $prefix_x) === false)) {
-		continue;
-	}
-	if (strpos($campaignlabel, $prefix) === false) {
+	$prefix_x = $prefix . "-spc"; //!important
+	if (strpos($campaignlabel, $prefix_x) === false) {
 		$f++;
 		continue;
 	}
-	$campaignid = substr($campaignlabel, strlen($prefix));
-	//echo $campaignid . "\n"; continue; //for debug
+	$campaignid = substr($campaignlabel, strlen($prefix_x));
+	//echo $campaignlabel . ',' . $prefix_x . ',' . $campaignid . "\n"; //for debug
+	//echo print_r($agents, true) . "\n"; continue;//for debug
 	
 	if (in_array($campaignid, array_keys($agents))) {
 		//echo $campaignid . "," . $agents[$campaignid] . ";\n"; continue;//for debug
