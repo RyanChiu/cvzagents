@@ -41,6 +41,7 @@ if (empty($agents)) {
 /*
  * start of the block that given by loadedcash.com
  */
+sleep(10);//we sleep 10 seconds here to avoid the conflict from other stats
 /*
 $aid = 'YOUR LOADEDCASH AFFILIATE ID HERE';
 $username = 'YOUR LOADEDCASH USERNAME HERE';
