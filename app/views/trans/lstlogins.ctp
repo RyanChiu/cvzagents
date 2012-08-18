@@ -17,24 +17,6 @@ echo $form->create(null, array('controller' => 'trans', 'action' => 'lstlogins')
 	<?php echo $html->image('iconSearch.png', array('style' => 'width:16px;height:16px;')) . 'Search'; ?>
 	</caption>
 	<tr>
-		<td class="search-label" style="width:105px;">Start Date:</td>
-		<td>
-			<div style="float:left;margin-right:20px;">
-			<?php
-			echo $form->input('ViewOnlineLog.startdate',
-				array('label' => '', 'id' => 'datepicker_start', 'style' => 'width:110px;', 'value' => $startdate));
-			?>
-			</div>
-		</td>
-		<td class="search-label">End Date:</td>
-		<td>
-			<div style="float:left;margin-right:46px;">
-			<?php
-			echo $form->input('ViewOnlineLog.enddate',
-				array('label' => '', 'id' => 'datepicker_end', 'style' => 'width:110px', 'value' => $enddate));
-			?>
-			</div>
-		</td>
 		<td class="search-label">Office:</td>
 		<td>
 			<div style="float:left;margin-right:20px;">
@@ -74,6 +56,27 @@ echo $form->create(null, array('controller' => 'trans', 'action' => 'lstlogins')
 			</div>
 			<div id="divAgentidLoading" style="float:left;width:100px;margin-right:20px;display:none;">
 			<?php echo $html->image('iconAttention.gif') . '&nbsp;Loading...'; ?>
+			</div>
+		</td>
+		<td class="search-label" style="width:65px;">Date:</td>
+		<td colspan="3">
+			<div style="float:left;width:50px;">
+				<b>Start:</b>
+			</div>
+			<div style="float:left;margin-right:20px;">
+			<?php
+			echo $form->input('ViewOnlineLog.startdate',
+				array('label' => '', 'id' => 'datepicker_start', 'style' => 'width:110px;', 'value' => $startdate));
+			?>
+			</div>
+			<div style="float:left;width:40px;">
+				<b>End:</b>
+			</div>
+			<div style="float:left;margin-right:46px;">
+			<?php
+			echo $form->input('ViewOnlineLog.enddate',
+				array('label' => '', 'id' => 'datepicker_end', 'style' => 'width:110px', 'value' => $enddate));
+			?>
 			</div>
 		</td>
 	</tr>

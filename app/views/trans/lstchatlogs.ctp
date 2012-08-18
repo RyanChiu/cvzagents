@@ -18,26 +18,6 @@ echo $form->create(null, array('controller' => 'trans', 'action' => 'lstchatlogs
 <?php echo $html->image('iconSearch.png', array('style' => 'width:16px;height:16px;')) . 'Search'; ?>
 </caption>
 <tr>
-	<td class="search-label" style="width:105px;">Start Date:</td>
-	<td>
-		<div style="float:left;margin-right:20px;">
-		<?php
-		echo $form->input('ViewChatLog.startdate',
-			array('label' => '', 'id' => 'datepicker_start', 'style' => 'width:110px;', 'value' => $startdate));
-		?>
-		</div>
-	</td>
-	<td class="search-label">End Date:</td>
-	<td colspan="3">
-		<div style="float:left;margin-right:46px;">
-		<?php
-		echo $form->input('ViewChatLog.enddate',
-			array('label' => '', 'id' => 'datepicker_end', 'style' => 'width:110px', 'value' => $enddate));
-		?>
-		</div>
-	</td>
-</tr>
-<tr>
 	<td class="search-label">Office:</td>
 	<td>
 		<div style="float:left;margin-right:20px;">
@@ -115,8 +95,28 @@ echo $form->create(null, array('controller' => 'trans', 'action' => 'lstchatlogs
 	</td>
 </tr>
 <tr>
-	<td></td>
-	<td colspan="5">
+	<td class="search-label" style="width:65px;">Date:</td>
+	<td colspan="3">
+		<div style="float:left;width:40px;">
+			<b>Start:</b>
+		</div>
+		<div style="float:left;margin-right:20px;">
+		<?php
+		echo $form->input('ViewChatLog.startdate',
+			array('label' => '', 'id' => 'datepicker_start', 'style' => 'width:110px;', 'value' => $startdate));
+		?>
+		</div>
+		<div style="float:left;width:40px;">
+			<b>End:</b>
+		</div>
+		<div style="float:left;margin-right:46px;">
+		<?php
+		echo $form->input('ViewChatLog.enddate',
+			array('label' => '', 'id' => 'datepicker_end', 'style' => 'width:110px', 'value' => $enddate));
+		?>
+		</div>
+	</td>
+	<td colspan="2">
 	<?php
 	echo $form->submit('Search', array('style' => 'width:110px;'));
 	?>
