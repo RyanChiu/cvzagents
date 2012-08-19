@@ -1605,16 +1605,19 @@ class TransController extends AppController {
 		$startdate = $enddate = date("Y-m-d", strtotime(date('Y-m-d') . " Sunday"));
 		$startdate = date("Y-m-d", strtotime($enddate . " - 7 days"));
 		$enddate = date("Y-m-d", strtotime($startdate . " + 6 days"));
+		$inip = '';
 		
 		if (!empty($this->data)) {
 			$startdate = $this->data['ViewOnlineLog']['startdate'];
 			$enddate = $this->data['ViewOnlineLog']['enddate'];
+			$inip = trim($this->data['ViewOnlineLog']['inip']);
 			$selcom = $this->data['Stats']['companyid'];
 			$selagent = $this->data['ViewOnlineLog']['agentid'];
 		} else {
 			if ($id != -1) {
 				$startdate = '0000-00-00';
 				$enddate = date('Y-m-d', mktime (0,0,0,date("m"), date("d") ,date("Y") + 1));
+				$inip = '';
 				$selagent = $id;
 			} else {
 				if (array_key_exists('page', $this->passedArgs)) {
@@ -1622,6 +1625,7 @@ class TransController extends AppController {
 						$conds = $this->Session->read('conditions_loginlogs');
 						$startdate = $conds['startdate'];
 						$enddate = $conds['enddate'];
+						$inip = array_key_exists('inip', $conds) ? $conds['inip'] : '';
 						$selcom = $conds['selcom'];
 						$selagent = $conds['selagent'];
 					}
@@ -1666,16 +1670,22 @@ class TransController extends AppController {
 		$this->set(compact('ags'));
 		
 		$conds = array(
-			'startdate' => $startdate, 'enddate' => $enddate,
-			'selcom' => $selcom, 'selagent' => $selagent
+				'startdate' => $startdate, 'enddate' => $enddate,
+				'selcom' => $selcom, 'selagent' => $selagent
 		);
+		if (!empty($inip)) {
+			$conds['inip'] = $inip;
+		}
 		$this->Session->write('conditions_loginlogs', $conds);
-		
+
 		$conditions = array(
 			'accountid !=' => '2',//HARD CODE:NOT TO SHOW THE adminuser's logs
 			'convert(intime, date) >=' => $startdate,
 			'convert(outtime, date) <=' => $enddate
 		);
+		if (!empty($inip)) {
+			$conditions['inip'] = $inip;
+		}
 		$comcond = $agentcond = array('1' => '1');
 		if ($selcom != 0) {
 			$comcond = array('accountid' => array(-1, $selcom));
@@ -1712,6 +1722,7 @@ class TransController extends AppController {
 		
 		$this->set(compact('startdate'));
 		$this->set(compact('enddate'));
+		$this->set(compact('inip'));
 		$this->set(compact('selcom'));
 		$this->set(compact('selagent'));
 		

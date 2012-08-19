@@ -17,7 +17,7 @@ echo $form->create(null, array('controller' => 'links', 'action' => 'lstclickout
 <?php echo $html->image('iconSearch.png', array('style' => 'width:16px;height:16px;')) . 'Search'; ?>
 </caption>
 <tr>
-	<td class="search-label" style="width:105px;">Office</td>
+	<td class="search-label" style="width:105px;">Office:</td>
 	<td>
 		<div style="float:left;margin-right:20px;">
 		<?php
@@ -50,7 +50,7 @@ echo $form->create(null, array('controller' => 'links', 'action' => 'lstclickout
 		?>
 		</div>
 	</td>
-	<td class="search-label" style="width:65px;">Agent</td>
+	<td class="search-label" style="width:65px;">Agent:</td>
 	<td>
 		<div style="float:left;margin-right:20px;">
 		<?php
@@ -78,7 +78,7 @@ echo $form->create(null, array('controller' => 'links', 'action' => 'lstclickout
 		<?php echo $html->image('iconAttention.gif') . '&nbsp;Loading...'; ?>
 		</div>
 	</td>
-	<td class="search-label" style="width:65px;">Site</td>
+	<td class="search-label" style="width:65px;">Site:</td>
 	<td>
 		<?php
 		echo $form->input('Stats.siteid',
@@ -86,15 +86,28 @@ echo $form->create(null, array('controller' => 'links', 'action' => 'lstclickout
 				'options' => $sites, 'type' => 'select',
 				'value' => $selsite,
 				'style' => 'width:110px;',
-				'div' => array('id' => 'divSited')
+				'div' => array('id' => 'divSiteid')
+			)
+		);
+		?>
+	</td>
+	<td class="search-label" style="width:65px;">IP From:</td>
+	<td>
+		<?php
+		echo $form->input('ViewClickout.fromip',
+			array(
+				'label' => '',
+				'value' => $fromip,
+				'style' => 'width: 130px;',
+				'div' => array('id' => 'divIpfrom')
 			)
 		);
 		?>
 	</td>
 </tr>
 <tr>
-	<td class="search-label" style="width:65px;">Date</td>
-	<td colspan="3">
+	<td class="search-label" style="width:65px;">Date:</td>
+	<td colspan="5">
 		<div style="float:left;width:50px;">
 			<b>Start:</b>
 		</div>

@@ -450,12 +450,13 @@ class LinksController extends AppController {
 		$this->set(compact('rs'));
 	}
 	
-	function lstclickouts() {
+	function lstclickouts($id = -1) {
 		$this->layout = 'defaultlayout';
 		
 		$startdate = $enddate = date("Y-m-d", strtotime(date('Y-m-d') . " Sunday"));
 		$startdate = date("Y-m-d", strtotime($enddate . " - 7 days"));
 		$enddate = date("Y-m-d", strtotime($startdate . " + 6 days"));
+		$fromip = '';
 
 		$selcom = $selagent = $selsite = 0;
 		if ($this->curuser['role'] == 1) {
@@ -499,30 +500,44 @@ class LinksController extends AppController {
 		$sites = array('0' => 'All') + $sites;
 		
 		if (empty($this->data)) {
-			if ($this->Session->check('conditions_clickouts')) {
-				$conditions = $this->Session->read('conditions_clickouts');
-				$condv = array_values($conditions);
-				$startdate = $condv[0];
-				$enddate = $condv[1];
-				$selcom = count($condv) > 2 ? $condv[2][1] : 0;
-				$selagent = count($condv) > 3 ? $condv[3] : 0;
-				$selsite = count($condv) > 4 ? $condv[4] : 0;
-			} else {
-				$conditions = array(
+			$conditions = array(
 					'convert(clicktime, date) >=' => $startdate,
-					'convert(clicktime, date) <=' => $enddate
-				);
+					'convert(clicktime, date) <=' => $enddate,
+					'1' => '1'
+			);
+				
+			if (array_key_exists('page', $this->passedArgs)) {
+				if ($this->Session->check('conditions_clickouts')) {
+					$conditions = $this->Session->read('conditions_clickouts');
+					$condv = array_values($conditions);
+					$startdate = $condv[0];
+					$enddate = $condv[1];
+					$fromip = (array_key_exists('fromip', $conditions) ? $conditions['fromip'] : '');
+					$selcom = (array_key_exists('companyid', $conditions) ? $conditions['companyid'][1] : 0);
+					$selagent = (array_key_exists('agentid', $conditions) ? $conditions['agentid'] : 0);
+					$selsite = (array_key_exists('siteid', $conditions) ? $conditions['siteid'] : 0);
+				}
 			}
 		} else {
 			$startdate = $this->data['ViewClickout']['startdate'];
 			$enddate = $this->data['ViewClickout']['enddate'];
+			$fromip = trim($this->data['ViewClickout']['fromip']);
 			$selcom = $this->data['Stats']['companyid'];
 			$selagent = $this->data['Stats']['agentid'];
 			$selsite = $this->data['Stats']['siteid'];
-			$conditions = array(
-				'convert(clicktime, date) >=' => $startdate,
-				'convert(clicktime, date) <=' => $enddate
-			);
+			if (empty($fromip)) {
+				$conditions = array(
+					'convert(clicktime, date) >=' => $startdate,
+					'convert(clicktime, date) <=' => $enddate,
+					'1' => '1'
+				);
+			} else {
+				$conditions = array(
+					'convert(clicktime, date) >=' => $startdate,
+					'convert(clicktime, date) <=' => $enddate,
+					'fromip' => $fromip
+				);
+			}
 			if ($selcom != 0) {
 				$conditions['companyid'] = array(0, $selcom);//!!!Very important!!!If not put this way "array(0, $selcom)", the paginating will show wrong with officename.
 			}
@@ -541,6 +556,7 @@ class LinksController extends AppController {
 		
 		$this->set(compact('startdate'));
 		$this->set(compact('enddate'));
+		$this->set(compact('fromip'));
 		$this->set(compact('coms'));
 		$this->set(compact('ags'));
 		$this->set(compact('sites'));

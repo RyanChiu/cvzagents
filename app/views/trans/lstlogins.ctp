@@ -58,7 +58,22 @@ echo $form->create(null, array('controller' => 'trans', 'action' => 'lstlogins')
 			<?php echo $html->image('iconAttention.gif') . '&nbsp;Loading...'; ?>
 			</div>
 		</td>
-		<td class="search-label" style="width:65px;">Date:</td>
+		<td class="search-label" style="width:65px;">IP:</td>
+		<td colspan="3">
+			<?php
+			echo $form->input('ViewOnlineLog.inip',
+				array(
+					'label' => '',
+					'value' => $inip,
+					'style' => 'width: 130px;',
+					'div' => array('id' => 'divInip')
+				)
+			);
+			?>
+		</td>
+	</tr>
+	<tr>
+				<td class="search-label" style="width:65px;">Date:</td>
 		<td colspan="3">
 			<div style="float:left;width:50px;">
 				<b>Start:</b>
@@ -79,10 +94,7 @@ echo $form->create(null, array('controller' => 'trans', 'action' => 'lstlogins')
 			?>
 			</div>
 		</td>
-	</tr>
-	<tr>
-		<td></td>
-		<td colspan="7">
+		<td colspan="6">
 		<?php
 		echo $form->submit('Search', array('style' => 'width:110px;'));
 		?>
