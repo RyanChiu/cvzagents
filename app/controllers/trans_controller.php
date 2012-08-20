@@ -1400,7 +1400,6 @@ class TransController extends AppController {
 					  . ($exdone ? '' : '<br/><i>(Site associating failed.)</i>')
 					  . ($mpchgdone ? '' : '<br/><i>(Mappings changing failed.)</i>')
 					);
-					/*
 					if ($this->Auth->user('role') == 0) {// means an administrator
 						$this->redirect(array('controller' => 'trans', 'action' => 'lstagents'));
 					} else if ($this->Auth->user('role') == 1) {// means an office
@@ -1412,7 +1411,6 @@ class TransController extends AppController {
 					} else if ($this->Auth->user('role') == 2) {// means an agent
 						$this->redirect(array('controller' => 'trans', 'action' => 'index'));
 					}
-					*/
 				} else {
 					$this->data['Account']['password'] = $this->data['Account']['originalpwd'];
 					//should add some codes here to delete the record that saved in 'accounts' table before if failed
