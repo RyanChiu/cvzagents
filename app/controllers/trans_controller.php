@@ -1353,14 +1353,15 @@ class TransController extends AppController {
 					$rs = $this->ViewMapping->find('first',
 						array(
 							'conditions' => array(
-								'LOWER(campaignid)' => strtolower($this->data['Account']['username'])
+								'LOWER(campaignid)' => strtolower($this->data['Account']['username']),
+								'flag' => 1
 							)
 						)
 					);
 					$__SAME__sites = $this->Site->find('list',
 						array(
 							'fields' => array('id', 'id'),
-							'conditions' => array('id not' => array(1, 2, 5))//which means not CAM4,2HM or ADMINTEST
+							'conditions' => array('id not' => array(-1, -2))//HARD CODE: which means every site that belongs to loadedcash so far here for CVZ
 						)
 					);
 					if (empty($rs)) {
@@ -1399,6 +1400,7 @@ class TransController extends AppController {
 					  . ($exdone ? '' : '<br/><i>(Site associating failed.)</i>')
 					  . ($mpchgdone ? '' : '<br/><i>(Mappings changing failed.)</i>')
 					);
+					/*
 					if ($this->Auth->user('role') == 0) {// means an administrator
 						$this->redirect(array('controller' => 'trans', 'action' => 'lstagents'));
 					} else if ($this->Auth->user('role') == 1) {// means an office
@@ -1410,6 +1412,7 @@ class TransController extends AppController {
 					} else if ($this->Auth->user('role') == 2) {// means an agent
 						$this->redirect(array('controller' => 'trans', 'action' => 'index'));
 					}
+					*/
 				} else {
 					$this->data['Account']['password'] = $this->data['Account']['originalpwd'];
 					//should add some codes here to delete the record that saved in 'accounts' table before if failed
