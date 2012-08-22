@@ -61,7 +61,14 @@ class Account extends AppModel {
 		if (isset($data) && $data['role'] == 2) {//only if it's an agent
 			$value = array_values($check);
 			$value = $value[0];
-			//this rule means:the first 1~3 chars should be A-Z or 0-9 or _, and the following 2~4 chars should be 0-9
+			/*
+			 * this rule means:
+			 * the first 1~3 chars should be A-Z or a-z, 
+			 * and the following 0~4 chars should be 0-9,
+			 * and the following 1 char should be _ or nothing,
+			 * and the following 0~2 chars should be 0-9.
+			 * /i means that both uppercase and lowercase should be fine.
+			 */
 			return preg_match('/^[A-Z]{1,3}\d{0,4}_{0,1}\d{0,2}$/i', $value);
 		}
 		return true;
