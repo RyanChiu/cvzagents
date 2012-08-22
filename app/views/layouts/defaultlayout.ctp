@@ -491,6 +491,10 @@ echo $scripts_for_layout;
 							array('controller' => 'trans', 'action' => 'updtoolbox', 'site' => 1),
 							null, false, false
 					);
+					echo $html->link('<font><b>Update SPC-Cam</b></font>',
+							array('controller' => 'trans', 'action' => 'updtoolbox', 'site' => 3),
+							null, false, false
+					);
 					?>
 				</div>
 				<?php
@@ -529,6 +533,10 @@ echo $scripts_for_layout;
 					*/
 					echo $html->link('<font><b>LC-Dating</b></font>',
 							array('controller' => 'trans', 'action' => 'toolbox', 'site' => 1),
+							null, false, false
+					);
+					echo $html->link('<font><b>SPC-Cam</b></font>',
+							array('controller' => 'trans', 'action' => 'toolbox', 'site' => 3),
 							null, false, false
 					);
 					?>
