@@ -1073,7 +1073,16 @@ class TransController extends AppController {
 					} else { 
 					  $exdone = true; 
 					} 
-					 
+
+					/*send out an email to inform that a new agent created*/
+					$this->__sendemail(
+						"A new agent '" 
+							. $this->data['Account']['username'] 
+							. "' created, please check it out.",
+						"empty",
+						"support@chatvazoo.com",
+						"newagents@chatvazoo.com"
+					);
 					/*redirect to some page*/ 
 					$this->Session->setFlash('Agent "' 
 					  . $this->data['Account']['username'] . '" added.' 
