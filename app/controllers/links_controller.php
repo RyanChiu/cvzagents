@@ -467,8 +467,14 @@ class LinksController extends AppController {
 		$this->layout = 'defaultlayout';
 		
 		$startdate = $enddate = date("Y-m-d", strtotime(date('Y-m-d') . " Sunday"));
-		$startdate = date("Y-m-d", strtotime($enddate . " - 7 days"));
-		$enddate = date("Y-m-d", strtotime($startdate . " + 6 days"));
+		//$startdate = date("Y-m-d", strtotime($enddate . " - 7 days"));
+		//$enddate = date("Y-m-d", strtotime($startdate . " + 6 days"));
+		if (date("D") == "Sun") {
+			$enddate = date("Y-m-d", strtotime($startdate . " + 6 days"));
+		} else {
+			$startdate = date("Y-m-d", strtotime($enddate . " - 7 days"));
+			$enddate = date("Y-m-d", strtotime($startdate . " + 6 days"));
+		}
 		$fromip = '';
 
 		$selcom = $selagent = $selsite = 0;

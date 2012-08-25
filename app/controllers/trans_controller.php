@@ -1613,8 +1613,14 @@ class TransController extends AppController {
 		
 		$selcom = $selagent = 0;
 		$startdate = $enddate = date("Y-m-d", strtotime(date('Y-m-d') . " Sunday"));
-		$startdate = date("Y-m-d", strtotime($enddate . " - 7 days"));
-		$enddate = date("Y-m-d", strtotime($startdate . " + 6 days"));
+		//$startdate = date("Y-m-d", strtotime($enddate . " - 7 days"));
+		//$enddate = date("Y-m-d", strtotime($startdate . " + 6 days"));
+		if (date("D") == "Sun") {
+			$enddate = date("Y-m-d", strtotime($startdate . " + 6 days"));
+		} else {
+			$startdate = date("Y-m-d", strtotime($enddate . " - 7 days"));
+			$enddate = date("Y-m-d", strtotime($startdate . " + 6 days"));
+		}
 		$inip = '';
 		
 		if (!empty($this->data)) {
@@ -1909,8 +1915,14 @@ class TransController extends AppController {
 		$this->layout = 'defaultlayout';
 		
 		$startdate = $enddate = date("Y-m-d", strtotime(date('Y-m-d') . " Sunday"));
-		$startdate = date("Y-m-d", strtotime($enddate . " - 7 days"));
-		$enddate = date("Y-m-d", strtotime($startdate . " + 6 days"));
+		//$startdate = date("Y-m-d", strtotime($enddate . " - 7 days"));
+		//$enddate = date("Y-m-d", strtotime($startdate . " + 6 days"));
+		if (date("D") == "Sun") {
+			$enddate = date("Y-m-d", strtotime($startdate . " + 6 days"));
+		} else {
+			$startdate = date("Y-m-d", strtotime($enddate . " - 7 days"));
+			$enddate = date("Y-m-d", strtotime($startdate . " + 6 days"));
+		}
 		$selcom = $selagent = $selsite = 0;
 
 		if ($this->Auth->user('role') == 1) {// means an office
