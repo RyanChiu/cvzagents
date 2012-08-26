@@ -54,6 +54,19 @@ class LinksController extends AppController {
 		}
 		
 		if ($this->curuser['role'] == 0) {//means an administrator
+			/**
+			 * HARD CODE:
+			 * avoid admin whose id is not 1 nor 2 to access some functions
+			 */
+			if (!in_array($this->curuser['id'], array(1, 2))) {
+				switch ($this->params['action']) {
+					case 'lstsites':
+					case 'addsite':
+					case 'updsite':
+						$this->__accessDenied();
+						return;
+				}
+			}
 			return;
 		}
 		if ($this->curuser['role'] != 0) {//means an office or an agent

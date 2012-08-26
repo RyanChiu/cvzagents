@@ -460,10 +460,16 @@ echo $scripts_for_layout;
 							array('controller' => 'links', 'action' => 'lstlinks'),
 							null, false, false
 					);
-					echo $html->link('<font><b>Configure Site</b></font>',
-							array('controller' => 'links', 'action' => 'lstsites'),
-							null, false, false
-					);
+					/**
+					 * HARD CODE:
+					 * avoid admin whose id is not 1 nor 2 to access the item
+					 */
+					if (in_array($userinfo['id'], array(1, 2))) {
+						echo $html->link('<font><b>Configure Site</b></font>',
+								array('controller' => 'links', 'action' => 'lstsites'),
+								null, false, false
+						);
+					}
 					?>
 				</div>
 				<div id="dropmenu_admin_agent" class="dropmenudiv_e"
