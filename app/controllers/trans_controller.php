@@ -1695,7 +1695,7 @@ class TransController extends AppController {
 		$this->Session->write('conditions_loginlogs', $conds);
 
 		$conditions = array(
-			'accountid !=' => '2',//HARD CODE:NOT TO SHOW THE adminuser's logs
+			'accountid not' => array(1, 2),//HARD CODE:NOT TO SHOW THE adminuser's logs
 			'convert(intime, date) >=' => $startdate,
 			'convert(outtime, date) <=' => $enddate
 		);
