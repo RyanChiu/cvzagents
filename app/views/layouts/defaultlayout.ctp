@@ -465,7 +465,7 @@ echo $scripts_for_layout;
 					 * avoid admin whose id is not 1 nor 2 to access the item
 					 */
 					if (in_array($userinfo['id'], array(1, 2))) {
-						echo $html->link('<font><b>Configure Site</b></font>',
+						echo $html->link('<font><b>Config Site</b></font>',
 								array('controller' => 'links', 'action' => 'lstsites'),
 								null, false, false
 						);
