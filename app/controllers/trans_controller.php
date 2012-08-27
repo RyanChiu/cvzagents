@@ -331,8 +331,6 @@ class TransController extends AppController {
 				)
 			);
 			$this->set('notes', '<font size="3"><b>Office news&nbsp;&nbsp;</b></font>' . $cominfo['Company']['agentnotes']);
-			
-			
 		}
 		
 		/*
@@ -351,6 +349,14 @@ class TransController extends AppController {
 		$this->set(compact('weekrs'));
 		$this->set(compact('weekstart'));
 		$this->set(compact('weekend'));
+		
+		/**
+		 * for the alerts show above the best sellers
+		 */
+		$this->Admin->id = 1;//HARD CODE: we put the alerts into here
+		$this->data = $this->Admin->read();
+		$alerts = $this->data['Admin']['notes'];
+		$this->set(compact('alerts'));
 				
 		/*prepare the totals demo data*/
 		/*## for accounts overview*/

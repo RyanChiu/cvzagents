@@ -88,6 +88,11 @@ if (!empty($archdata)) {
 echo $this->element('timezoneblock');
 ?>
 
+<div>
+<?php echo empty($alerts) ? '' : '<br/>' . $alerts; ?>
+</div>
+
+<br/>
 <table style="width:100%">
 <caption><font size="5" color="#bb2222">Best sellers this week.</font></caption>
 <tr>
