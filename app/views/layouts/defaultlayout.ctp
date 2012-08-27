@@ -658,34 +658,34 @@ echo $scripts_for_layout;
 	</div>
 	<div style="display: none">
 		<div id="attentions_for_agents" style="width: 800px;">
-			<!--  
+		<!--  
 		<p class="p-blink" style="font:italic bolder 24px/100% Georgia;color:red;margin:0px 0px 6px 0px;">
 		ATTENTION, EVERYONES: 
 		</p>
 		-->
 			<script type="text/javascript" language="javascript">
-		/*//we just don't blink the title of the alerts here
-		colors = new Array(6);
-		colors[0] = "#ff0000";
-		colors[1] = "#ff2020";
-		colors[2] = "#ff4040";
-		colors[3] = "#ff6060";
-		colors[4] = "#ff8080";
-		colors[5] = "#ffffff";
-		var clr_i = 0;
-		function __blinkIt() {
-			if (clr_i < colors.length) {
-				jQuery(".p-blink").css("color", colors[clr_i]);
-				clr_i++;
-				setTimeout("__blinkIt()", 200);
-			} else {
-				clr_i = 0;
-				setTimeout("__blinkIt()", 1200);
+			/*//we just don't blink the title of the alerts here
+			colors = new Array(6);
+			colors[0] = "#ff0000";
+			colors[1] = "#ff2020";
+			colors[2] = "#ff4040";
+			colors[3] = "#ff6060";
+			colors[4] = "#ff8080";
+			colors[5] = "#ffffff";
+			var clr_i = 0;
+			function __blinkIt() {
+				if (clr_i < colors.length) {
+					jQuery(".p-blink").css("color", colors[clr_i]);
+					clr_i++;
+					setTimeout("__blinkIt()", 200);
+				} else {
+					clr_i = 0;
+					setTimeout("__blinkIt()", 1200);
+				}
 			}
-		}
-		__blinkIt();
-		*/
-		</script>
+			__blinkIt();
+			*/
+			</script>
 			<p style="padding: 3px 3px 3px 3px;">
 				<?php
 				echo !empty($alerts) ? $alerts : '';
