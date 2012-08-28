@@ -89,7 +89,7 @@ echo $this->element('timezoneblock');
 ?>
 
 <div>
-<?php echo empty($alerts) ? '' : '<br/>' . $alerts; ?>
+
 </div>
 
 <br/>
