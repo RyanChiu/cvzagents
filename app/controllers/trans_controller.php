@@ -2205,9 +2205,9 @@ class TransController extends AppController {
 			$this->Session->setFlash("Sorry, you are suspended for the moment.");
 			return;
 		}
-		$this->ViewCompany->companyid = $r['ViewAgent']['companyid'];
-		$r = $this->ViewCompany->read();
-		if ($r['ViewCompany']['status'] == 0 ) {
+		$this->Account->id = $r['ViewAgent']['companyid'];
+		$r = $this->Account->read();
+		if ($r['Account']['status'] == 0 ) {
 			$this->Session->setFlash("Sorry, your office are suspended for the moment.");
 			return;
 		}
