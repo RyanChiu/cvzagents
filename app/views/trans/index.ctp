@@ -81,17 +81,46 @@ if (!empty($archdata)) {
 </div>
 </div>
 
-<!-- show the top selling list -->
 <br/>
 
 <?php
 echo $this->element('timezoneblock');
 ?>
 
-<div>
+<br/>
+<table style="width:100%">
+<!-- <tr class="odd"> -->
+<tr>
+	<td>
+	<div style="margin:5px 20px 5px 20px;">
+	<?php
+	//echo $html->image('iconTopnotes.png');
+	//echo '<b><font size="3">News</font></b>';
+	echo /*'<br/>' . */$topnotes;
+	?>
+	<div style="height:6px"></div>
+	</div>
+	</td>
+</tr>
+<?php
+if (!empty($notes)) {
+?>
+<tr>
+	<td>
+	<div style="margin:5px 20px 5px 20px;">
+	<?php
+	//echo $html->image('iconAttention.png');
+	echo '<br/>' . $notes . '<br/><div style="height:6px"></div>';
+	?>
+	</div>
+	</td>
+</tr>
+<?php 
+}
+?>
+</table>
 
-</div>
-
+<!-- show the top selling list -->
 <br/>
 <table style="width:100%">
 <caption><font size="5" color="#bb2222">Best sellers this week.</font></caption>
@@ -163,32 +192,6 @@ echo $this->element('timezoneblock');
 		}
 		?>
 		</table>
-	</td>
-</tr>
-</table>
-
-<table style="width:100%">
-<!-- <tr class="odd"> -->
-<tr>
-	<td>
-	<div style="margin:5px 20px 5px 20px;">
-	<?php
-	//echo $html->image('iconTopnotes.png');
-	//echo '<b><font size="3">News</font></b>';
-	echo /*'<br/>' . */$topnotes;
-	?>
-	<div style="height:6px"></div>
-	</div>
-	</td>
-</tr>
-<tr>
-	<td>
-	<div style="margin:5px 20px 5px 20px;">
-	<?php
-	//echo $html->image('iconAttention.png');
-	echo '<br/>' . $notes . '<br/><div style="height:6px"></div>';
-	?>
-	</div>
 	</td>
 </tr>
 </table>
