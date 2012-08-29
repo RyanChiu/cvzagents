@@ -2198,6 +2198,19 @@ class TransController extends AppController {
 			return;
 		}
 		*/
+		/*
+		 * if an agent or its office is suspended, we don't redirect it.
+		 */
+		if ($r['ViewAgent']['status'] == 0) {
+			$this->Session->setFlash("Sorry, you are suspended for the moment.");
+			return;
+		}
+		$this->ViewCompany->companyid = $r['ViewAgent']['companyid'];
+		$r = $this->ViewCompany->read();
+		if ($r['ViewCompany']['status'] == 0 ) {
+			$this->Session->setFlash("Sorry, your office are suspended for the moment.");
+			return;
+		}
 		
 		$r = $this->Type->find('first',
 			array(
