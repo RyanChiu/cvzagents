@@ -2329,11 +2329,11 @@ class TransController extends AppController {
 		$files = array_values($_FILES);
 		$_file = $files[0];
 		
-		$filename = "/var/www/awl/uploads/images/" . $_file['name'];
+		$filename = "/var/www/cvzdoc/uploads/images/" . $_file['name'];
 		if (!copy($_file['tmp_name'], $filename)) {
 			$this->set('script', __mkuploadhtml($funcn, '', 'Failed to upload.'));
 		} else {
-			$this->set('script', __mkuploadhtml($funcn, '/../awl/uploads/images/' . $_file['name'], ''));
+			$this->set('script', __mkuploadhtml($funcn, '/../cvzdoc/uploads/images/' . $_file['name'], ''));
 		}
 	}
 }
