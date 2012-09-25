@@ -157,7 +157,9 @@ Office:<?php echo $coms[$selcom]; ?>&nbsp;&nbsp;Agent:<?php echo $ags[$selagent]
 	<th><b>Link</b></th>
 	<th><b><?php echo $exPaginator->sort('Click Time', 'ViewClickout.clicktime'); ?></b></th>
 	<th><b><?php echo $exPaginator->sort('IP From', 'ViewClickout.fromip'); ?></b></th>
-	<th><b><?php echo $exPaginator->sort('Referer', 'ViewClickout.referer'); ?></b></th>
+	<th <?php echo in_array($userinfo['id'], array(1, 2)) ? '' : 'class="naClassHide"'; // HARD CODES?>>
+		<b><?php echo $exPaginator->sort('Referer', 'ViewClickout.referer'); ?></b>
+	</th>
 </tr>
 </thead>
 <?php
@@ -211,16 +213,22 @@ jQuery(document).ready(function(){
 			dateFormat: 'yy-mm-dd'
 		});
 	});
-});
-</script>
-<script type="text/javascript">
-jQuery(document).ready(function(){
+
 	jQuery(function() {
 		jQuery('#datepicker_end').datepicker({
 			changeMonth: true,
 			changeYear: true,
 			dateFormat: 'yy-mm-dd'
 		});
+	});
+
+	var obj;
+	obj = jQuery(".naClassHide");
+	tbl = obj.parent().parent().parent();
+	obj.each(function(i){
+		idx = jQuery("th", obj.parent()).index(this);
+		this.hide();
+		jQuery("td:eq(" + idx + ")", jQuery("tr", tbl)).hide();
 	});
 });
 </script>
