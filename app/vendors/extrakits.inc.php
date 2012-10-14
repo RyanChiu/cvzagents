@@ -134,7 +134,7 @@
 	/*
 	 * try to send an email
 	 */
-	function __phpmail($mailto = "maintainer.cci@gmail.com", $subject = "", $content = "") {
+	function __phpmail($mailto = "agents.maintainer@gmail.com", $subject = "", $content = "") {
 		require_once("Mail.php");
 		$mailer = Mail::factory(
 			"SMTP",
