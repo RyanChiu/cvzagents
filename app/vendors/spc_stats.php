@@ -78,17 +78,18 @@ $url = 'http://www.loadedcash.com/api.php?response_type=xml&json={"key":"' .
  * and we change and optimize the above 3 lines as the following block goes
  */
 $retimes = 0;
+$toptimes = 2;
 $response = file_get_contents($url);
 while ($response === false) {
 	$retimes++;
 	sleep(35);
 	$response = file_get_contents($url);
-	if ($retimes == 1) break;
+	if ($retimes == $toptimes) break;
 }
 if ($response === false) {
 	$mailinfo = 
 		__phpmail("agents.maintainer@gmail.com",
-			"SPC STATS GETTING ERROR, REPORT WITH DATE: " . date('Y-m-d H:i:s') . "(retried " . $retimes . " times)",
+			"SPC (on CVZ) STATS GETTING ERROR, REPORT WITH DATE: " . date('Y-m-d H:i:s') . "(retried " . $retimes . " times)",
 			"<b>FROM WEB02</b><br><b>--ERROR REPORT</b><br>"
 		);
 	exit(sprintf("Failed to read stats data.(%s)(%d times)\n", $mailinfo, $retimes));
