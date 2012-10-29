@@ -63,13 +63,16 @@ class Account extends AppModel {
 			$value = $value[0];
 			/*
 			 * this rule means:
-			 * the first 1~3 chars should be A-Z or a-z, 
+			 * the firs 0~4 chars should be A-Z or a-z or 0-9,
+			 * and following by a _ or nothing, and there two means a prefix which
+			 * is used to do the "delete an account" stuff.
+			 * and the following 1~3 chars should be A-Z or a-z, 
 			 * and the following 0~4 chars should be 0-9,
 			 * and the following 1 char should be _ or nothing,
 			 * and the following 0~2 chars should be 0-9.
 			 * /i means that both uppercase and lowercase should be fine.
 			 */
-			return preg_match('/^[A-Z]{1,3}\d{0,4}_{0,1}\d{0,2}$/i', $value);
+			return preg_match('/^[A-Z0-9]{0,4}_{0,1}[A-Z]{1,3}\d{0,4}_{0,1}\d{0,2}$/i', $value);
 		}
 		return true;
 	}
