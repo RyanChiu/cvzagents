@@ -620,10 +620,11 @@ echo $scripts_for_layout;
 						<script language="javascript">
 			        	function __zShowClock() {
 			        		var now = new Date();
-				        	now.setHours(now.getHours() + 8);
+				        	//now.setHours(now.getHours() + 8);
 				        	var nowStr = now.toUTCString();
-				        	nowStr = nowStr.replace("GMT", "Manila"); // for firefox browser
-				        	nowStr = nowStr.replace("UTC", "Manila"); // for IE browser
+				        	//nowStr = nowStr.replace("GMT", "Manila"); // for firefox browser
+				        	//nowStr = nowStr.replace("UTC", "Manila"); // for IE browser
+				        	nowStr = nowStr.replace("UTC", "GMT");
 			        		jQuery("#iptClock").val(nowStr);
 			        		setTimeout("__zShowClock()", 1000);
 			        	}
