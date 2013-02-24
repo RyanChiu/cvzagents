@@ -178,7 +178,7 @@ class TransController extends AppController {
 		);
 		$rs = $this->Stats->find('all',
 			array(
-				'fields' => array('agentid', 'sum(sales_number) as sales'),
+				'fields' => array('agentid', 'sum(sales_number - chargebacks) as sales'),
 				'conditions' => array(
 					'convert(trxtime, date) <=' => $conds['enddate'],
 					'convert(trxtime, date) >=' => $conds['startdate'],
