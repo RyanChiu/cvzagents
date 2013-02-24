@@ -166,7 +166,7 @@ if (!empty($rs)) {
 		<td align="center"><?php echo $r['ViewChatLog']['sitename']; ?></td>
 		<td align="center"><?php echo $r['ViewChatLog']['clientusername']; ?></td>
 		<td><?php echo str_replace("\n", "<br/>", $r['ViewChatLog']['conversation']); ?></td>
-		<td align="center"><?php echo $r['ViewChatLog']['submittime']; ?></td>
+		<td align="center"><?php echo date("Y-m-d H:i:s", strtotime($r['ViewChatLog']['submittime'] . " - 8 hours")); ?></td>
 	</tr>
 	<?php
 	$i++;

@@ -127,8 +127,8 @@ foreach ($rs as $r) {
 			<?php echo $r['ViewOnlineLog']['inip']; ?>
 		</a>
 	</td>
-	<td align="center"><?php echo $r['ViewOnlineLog']['intime']; ?></td>
-	<td align="center"><?php echo $r['ViewOnlineLog']['outtime']; ?></td>
+	<td align="center"><?php echo date("Y-m-d H:i:s", strtotime($r['ViewOnlineLog']['intime'] . " - 8 hours")); ?></td>
+	<td align="center"><?php echo date("Y-m-d H:i:s", strtotime($r['ViewOnlineLog']['outtime'] . " - 8 hours")); ?></td>
 </tr>
 <?php
 $i++;

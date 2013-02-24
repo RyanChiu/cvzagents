@@ -24,7 +24,7 @@ class TransController extends AppController {
 		'ExPaginator'
 	);
 	var $__limit = 50;
-	var $__svrtz = "Asia/Manila";
+	var $__svrtz = "Asia/Manila";// which only effect login/out logs and chat logs, don't effect clickout logs (clickout logs depend on the setting in "extrakits.inc.php")
 	var $__timeout = 21600;// in seconds, shoud be the same with the php timeout setting
 
 	function beforeFilter() {
@@ -1692,10 +1692,16 @@ class TransController extends AppController {
 		}
 		$this->Session->write('conditions_loginlogs', $conds);
 
+		/*
+		 * for some historical reason, we log the time in "Asia/Manila" and here the searching
+		* time is in "GMT", which is 8 hours earlier than one of "Asia/Manila", so here we
+		* should add 8 hours.
+		* And of course, we cut off 8 hours when showing them on the view.
+		*/
 		$conditions = array(
 			'accountid not' => array(1, 2),//HARD CODE:NOT TO SHOW some "super" admins' login logs
-			'convert(intime, date) >=' => $startdate,
-			'convert(outtime, date) <=' => $enddate
+			'convert(intime, date) >=' => date("Y-m-d H:i:s", strtotime($startdate . " + 8 hours")),
+			'convert(outtime, date) <=' => date("Y-m-d H:i:s", strtotime($enddate . " + 8 hours"))
 		);
 		if (!empty($inip)) {
 			$conditions['inip'] = $inip;
@@ -2012,9 +2018,15 @@ class TransController extends AppController {
 		);
 		$this->Session->write('conditions_chatlogs', $conds);
 		
+		/*
+		 * for some historical reason, we log the time in "Asia/Manila" and here the searching
+		* time is in "GMT", which is 8 hours earlier than one of "Asia/Manila", so here we
+		* should add 8 hours.
+		* And of course, we cut off 8 hours when showing them on the view.
+		*/
 		$conditions = array(
-			'convert(submittime, date) >=' => $startdate,
-			'convert(submittime, date) <=' => $enddate
+			'convert(submittime, date) >=' => date("Y-m-d H:i:s", strtotime($startdate . " + 8 hours")),
+			'convert(submittime, date) <=' => date("Y-m-d H:i:s", strtotime($enddate . " + 8 hours"))
 		);
 		if ($selcom != 0) $conditions['companyid'] = array(-1, $selcom);
 		if ($this->Auth->user('role') == 1) {
