@@ -54,6 +54,15 @@ class TransController extends AppController {
 	
 	function __handleAccess() {		
 		if ($this->Auth->user('role') == 0) {//means an administrator
+			switch ($this->params['action']) {
+				case 'addnews':
+				case 'updalerts':
+					if ($this->Auth->user("id") != 1
+					&& $this->Auth->user("id") != 2) {
+						$this->__accessDenied();
+					}
+					return;
+			}
 			return;
 		}
 		if ($this->Auth->user('role') == 1) {//means an office
