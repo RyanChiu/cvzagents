@@ -17,7 +17,7 @@ echo $form->create(null, array('controller' => 'trans', 'action' => 'login'));
 		</td>
 		<td rowspan="10" width="185px" style="vertical-align: top;">
 			<div style="float: right; text-align: right;">
-				<?php echo $html->link("Register for account", "/../cvzreg/MerchantRegistration.htm"); ?>
+				<?php echo $html->link("Register for account", "/../cvzreg/MerchantRegistration.php"); ?>
 				<br/>
 				<?php echo $html->link("Contact us", array("controller" => "trans", "action" => "contactus")); ?>
 			</div>
