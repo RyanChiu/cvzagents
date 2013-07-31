@@ -5,7 +5,7 @@
 $logpath = APP . "tmp" . DS . "canals.log";
 $from = "from canal $n: ";
 $now = new DateTime("now", new DateTimeZone("GMT"));
-$now = " [" . $now->format("Y-m-d H:i:s") . "]\n";
+$now = " [" . $now->format("Y-m-d H:i:s") . " GMT]\n";
 if (empty($_POST)) {
 	error_log(
 		$from . "Nothing posted here" . $now,
