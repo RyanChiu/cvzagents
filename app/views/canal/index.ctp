@@ -5,16 +5,17 @@
 $logpath = APP . "tmp" . DS . "canals.log";
 $from = "from canal $n: ";
 $now = new DateTime("now", new DateTimeZone("GMT"));
-$now = " [" . $now->format("Y-m-d H:i:s") . " GMT]\n";
+$stamp =  " [" . __getclientip() . "/" 
+	.$now->format("Y-m-d H:i:s") . " GMT]\n";
 if (empty($_POST)) {
 	error_log(
-		$from . "Nothing posted here" . $now,
+		$from . "Nothing posted here" . $stamp,
 		3, 
 		$logpath
 	);
 } else {
 	error_log(
-		$from . "\n" . print_r($_POST, true) . $now,
+		$from . "\n" . print_r($_POST, true) . $stamp,
 		3,
 		$logpath 
 	);
