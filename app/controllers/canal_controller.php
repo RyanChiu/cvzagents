@@ -21,6 +21,7 @@ class CanalController extends AppController {
 		$this->layout = "emptylayout";
 		
 		$n = -1;
+		$ip = __getclientip();
 		if (isset($_POST['ch'])) {
 			$n = $_POST['ch'];
 		}
@@ -35,6 +36,7 @@ class CanalController extends AppController {
 		}
 		$this->set(compact("s"));
 		$this->set(compact("n"));
+		$this->set(compact("ip"));
 	}
 }
 	

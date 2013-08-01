@@ -5,8 +5,8 @@
 $logpath = APP . "tmp" . DS . "canals.log";
 $from = "from canal $n: ";
 $now = new DateTime("now", new DateTimeZone("GMT"));
-$stamp =  " [" . __getclientip() . "/" 
-	.$now->format("Y-m-d H:i:s") . " GMT]\n";
+$stamp =  " [" . $ip . "/" 
+	.$now->format("Y-m-d H:i:s") . "GMT]\n";
 if (empty($_POST)) {
 	error_log(
 		$from . "Nothing posted here" . $stamp,
