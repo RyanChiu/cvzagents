@@ -497,7 +497,7 @@ echo $scripts_for_layout;
 							array('controller' => 'trans', 'action' => 'updtoolbox', 'site' => 1),
 							null, false, false
 					);
-					echo $html->link('<font><b>Update SPC-Cam</b></font>',
+					echo $html->link('<font><b>Update EXTRA</b></font>',
 							array('controller' => 'trans', 'action' => 'updtoolbox', 'site' => 3),
 							null, false, false
 					);
@@ -545,7 +545,7 @@ echo $scripts_for_layout;
 							array('controller' => 'trans', 'action' => 'toolbox', 'site' => 1),
 							null, false, false
 					);
-					echo $html->link('<font><b>SPC-Cam</b></font>',
+					echo $html->link('<font><b>EXTRA</b></font>',
 							array('controller' => 'trans', 'action' => 'toolbox', 'site' => 3),
 							null, false, false
 					);

@@ -1,5 +1,5 @@
 <h1>
-<?php echo $rs['Site']['sitename'] . ' Affiliate'; ?>
+<?php echo $rs['Site']['id'] != 3 ? $rs['Site']['sitename'] . ' Affiliate' : 'Extra'; /*HARD CODE*/?>
 </h1>
 <?php
 /*
