@@ -185,14 +185,15 @@ class TransController extends AppController {
 				'fields' => array('id', 'id')
 			)
 		);
-		$rs = $this->Stats->find('all',
+		$rs = $this->ViewStats->find('all',
 			array(
 				'fields' => array('agentid', 'sum(sales_number - chargebacks) as sales'),
 				'conditions' => array(
 					'convert(trxtime, date) <=' => $conds['enddate'],
 					'convert(trxtime, date) >=' => $conds['startdate'],
 					'typeid' => $tps,
-					'agentid >' => '0'//avoid those data that don't belog to any agent
+					'agentid >' => '0',//avoid those data that don't belog to any agent
+					'status' => 1
 				),
 				'group' => array('agentid'),
 				'order' => array('sales desc'),
@@ -204,13 +205,13 @@ class TransController extends AppController {
 			$topag = $this->Account->find('first',
 				array(
 					'fields' => array('username'),
-					'conditions' => array('id' => $r['Stats']['agentid'])
+					'conditions' => array('id' => $r['ViewStats']['agentid'])
 				)
 			);
 			$topcom = $this->Agent->find('first',
 				array(
 					'fields' => array('companyid'),
-					'conditions' => array('id' => $r['Stats']['agentid'])
+					'conditions' => array('id' => $r['ViewStats']['agentid'])
 				)
 			);
 			$topcom = $this->Company->find('first',
