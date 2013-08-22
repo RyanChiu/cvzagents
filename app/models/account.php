@@ -63,7 +63,7 @@ class Account extends AppModel {
 			$value = $value[0];
 			/*
 			 * this rule means:
-			 * the firs 0~4 chars should be A-Z or a-z or 0-9,
+			 * the first 0~4 chars should be A-Z or a-z or 0-9,
 			 * and following by a _ or nothing, and there two means a prefix which
 			 * is used to do the "delete an account" stuff.
 			 * and the following 1~3 chars should be A-Z or a-z, 
