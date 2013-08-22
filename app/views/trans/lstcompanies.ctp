@@ -171,7 +171,7 @@ foreach ($rs as $r):
 		$html->image('iconSuspend.png', array('border' => 0, 'width' => 16, 'height' => 16)) . '&nbsp;',
 		array('controller' => 'trans', 'action' => 'activatem', 'ids' => $r['ViewCompany']['companyid'], 'status' => 0, 'from' => 0),
 		array('title' => 'Click to suspend the user.'),
-		false, false
+		"Are you sure?", false
 	);
 	?>
 	</td>
@@ -202,7 +202,7 @@ echo $html->link(
 	$html->image('iconSuspend.png', array('border' => 0, 'width' => 16, 'height' => 16)) . '&nbsp;&nbsp;',
 	array('controller' => 'trans', 'action' => 'activatem'),
 	array('id' => 'linkSuspendSelected', 'title' => 'Click to suspend the selected users.'),
-	false, false
+	"Are you sure?", false
 );
 echo $html->link(
 	'',
